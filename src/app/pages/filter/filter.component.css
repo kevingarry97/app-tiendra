@@ -1,0 +1,14 @@
+#card {
+  cursor: pointer;
+}
+.input-group-text {
+  border-left: none;
+  background-color: transparent;
+}
+input {
+  border-right: none;
+}
+ul {
+  max-height: 140px;
+  overflow: auto;
+}

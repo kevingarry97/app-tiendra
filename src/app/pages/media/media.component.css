@@ -1,0 +1,17 @@
+i {
+  font-size: 2em;
+  margin: 1.4em 0;
+  font-weight: bold;
+}
+.facebook {
+  background-color: #9393ff;
+  color: #3232ff;
+}
+.instagram {
+  background-color: #ffa8c5;
+  color: #ff4683;
+}
+.twitter {
+  background-color: #b6effd;
+  color: #29b9fc;
+}

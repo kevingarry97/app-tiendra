@@ -1,0 +1,76 @@
+<section>
+  <div class="filterButtonContainer">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col">
+          <span class="hideLarge" (click)="filterOpen()">
+            <i class="fa fa-filter fa-1x my-2"></i>
+          </span>
+        </div>
+        <div class="col">
+          <span class="hideLarge">
+            <i class="fa fa-heart fa-1x my-2"></i>
+          </span>
+        </div>
+        <div class="col">
+          <span class="hideLarge">
+            <i class="fa fa-bars fa-1x my-2"></i>
+          </span>
+        </div>
+        <div class="col">
+          <span class="hideLarge">
+            <i class="fa fa-shopping-cart fa-1x my-2"></i>
+          </span>
+        </div>
+        <div class="col">
+          <span class="hideLarge">
+            <i class="fa fa-home fa-1x my-2"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="Container">
+    <!-- Sidebar/menu -->
+    <div class="sideOut collapse white mt-lg-5 py-md-4" style="z-index: 3;" #filter>
+      <div class="cards">
+        <div class="card">
+          <div class="card-body">
+            Click icon to close menu
+            <button type="button" class="close" aria-label="Close" (click)="filterClose()">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="categories px-4">
+        <h2 class="font-weight-bold my-3" style="letter-spacing: .01em;"> Categories </h2>
+        <app-filter></app-filter>
+      </div>
+    </div>
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="overlay hideLarge" (click)="filterClose()" style="cursor:pointer" #myOverlay></div>
+    <div class="product">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="card" routerLink="/product">
+              <img src="https://demo.createx.studio/cartzilla/img/shop/catalog/02.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h6 class="card-text m-0">Women's T-Shirt</h6>
+                <p class="font-weight-bold text-muted m-0 mb-2"> Female</p>
+                <div class="clearfix">
+                  <p class="float-left mt-2">$40</p>
+                  <span class="float-right">
+                    <i class="fa fa-shopping-cart"></i>
+                    <i class="fa fa-heart"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

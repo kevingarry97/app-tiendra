@@ -1,0 +1,21 @@
+#offProducts .card {
+  border: 0;
+  border-radius: 0;
+  border-top-left-radius: 15px;
+  cursor: pointer;
+}
+#offProducts .box {
+  position: absolute;
+  display: flex;
+  background-color: #fae6cb;
+  padding: 4px;
+  font-size: 13px;
+  margin: 5px 4px;
+  border-radius: 3px;
+  color: #e28101;
+  font-weight: bold;
+}
+#offProducts p {
+  font-size: 13px;
+  line-height: .25;
+}
