@@ -1,0 +1,41 @@
+#footer {
+  background: #15161D;
+  color: #B9BABC;
+  padding-top: 25px;
+  margin-bottom: 0;
+}
+
+#bottom-footer {
+  background: #1E1F29;
+}
+
+.footer .footer-title {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.footer-links li {
+  list-style: none;
+}
+
+.footer-links li a {
+  color: #b9babc;
+}
+
+.footer-links li i {
+  margin-right: 15px;
+  color: #d10024;
+  width: 14px;
+  text-align: center;
+}
+
+.footer-links li a:hover {
+  color: #D10024;
+  text-decoration: none;
+}
+
+.copyright {
+  margin-top: 30px;
+  font-size: 12px;
+}

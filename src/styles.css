@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@import'~bootstrap/dist/css/bootstrap.min.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.form-control.ng-touched.ng-invalid {
+  border: 2px solid red;
+}
+.btn.btn-danger {
+  background-color: #e28101 !important;
+  color: #f2f2f2 !important;
+  border: none;
+}
+.text-danger {
+  color: #e28101 !important;
+}
+.bg-danger {
+  background-color: #e28101 !important;
+}
