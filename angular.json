@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "tiendra"
+    }
+  },
+  "defaultProject": "tiendra",
+  "cli": {
+    "analytics": false
+  }
 }
