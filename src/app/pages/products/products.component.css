@@ -88,7 +88,6 @@ i {
     width: 325px;
   }
   .card .card-body {
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
     padding: 15px 12px !important;
   }
   .filterButtonContainer {
@@ -97,6 +96,7 @@ i {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .5)!important;
     width: 100%;
     background-color: #ffffff;
+    margin-left: -1.1em;
     position: fixed;
     bottom: 0;
     color: #1d1c1c;
