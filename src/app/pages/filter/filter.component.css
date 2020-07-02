@@ -1,6 +1,12 @@
 #card {
   cursor: pointer;
 }
+#card h6 {
+  font-size: 13px;
+}
+#card i {
+  font-size: 13px;
+}
 .input-group-text {
   border-left: none;
   background-color: transparent;

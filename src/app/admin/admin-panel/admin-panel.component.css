@@ -10,43 +10,91 @@
   background: inherit;
 }
 
+.clearfix a {
+  font-size: 16px;
+  color: #eb8005;
+  display: flex;
+  justify-content: center;
+}
+.clearfix span {
+  display: flex;
+  justify-content: center;
+}
+.clearfix i {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.clearfix .fa-facebook {
+  background-color: #c4befaa2;
+  color: rgb(70, 70, 236);
+}
+.clearfix .fa-instagram {
+  background-color: #fabfd7;
+  color: #f53280;
+}
+.clearfix .fa-github {
+  background-color: #202020;
+  color: #fff;
+}
+.clearfix .fa-twitter {
+  background-color: #c8f7fd;
+  color: #08cfe9;
+}
+
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
   z-index: 1;
 }
 
+.breadcrumb {
+  background-color: transparent !important;
+  margin-top: .8em;
+}
+
+.breadcrumb li {
+  font-size: 12px;
+}
+
 .primary {
   background: linear-gradient(to right, #370028, #865419) !important;
   color: #fff;
 }
-nav ul {
-  list-style: none;
-  width: 100%;
-  display: block;
+
+.dropdown-menu a {
+  font-size: 15px;
+}
+
+.mat-toolbar-single-row {
+  height: 40px;
+}
+
+.nav li {
+  font-size: 15px;
+  padding: 5px 0px;
+}
+.card {
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.card .clearfix {
   cursor: pointer;
 }
-nav ul li {
-  line-height: 30px;
-  padding: 8px 0px;
-  font-size: 16px;
+.mat-typography h4 {
+  margin: 0;
 }
-nav ul li a {
-  text-decoration: none;
-  font-size: 16px;
-  display: block;
+.media-body h4 {
+  font-size: 17px;
 }
-nav input {
-  display: none;
+.media i {
+  font-size: 17px;
 }
-nav ul ul {
-  position: static;
-  display: none;
+.card-body {
+  padding: 0 2em;
 }
-[id^=btn]:checked + ul {
-  display: block;
-}
-nav ul ul li a {
-  line-height: 30px;
-  font-size: 14px;
-}
+

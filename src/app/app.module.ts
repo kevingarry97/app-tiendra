@@ -23,14 +23,10 @@ import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { ShoppingComponent } from './pages/shopping/shopping.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
-import { LayoutModule } from '@angular/cdk/layout';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatIconModule } from '@angular/material/icon';
-import { MatListModule } from '@angular/material/list';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { MaterialModule } from './material/material.module';
+import { SideMenuComponent } from './admin/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -54,19 +50,15 @@ import { DashboardComponent } from './admin/dashboard/dashboard.component';
     SignInComponent,
     AdminPanelComponent,
     AddProductComponent,
-    DashboardComponent
+    DashboardComponent,
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

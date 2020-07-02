@@ -3,74 +3,109 @@
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
     [mode]="(isHandset$ | async) ? 'over' : 'side'"
     [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>
-      <a routerLink="/admin/" class="text-center">
-        Dashboard
-      </a>
-    </mat-toolbar>
-    <nav>
-      <ul class="menu">
-        <li>
-          <label for="btn-2"> Products
-            <span class="ml-5 pl-5"><i class="fa fa-plus"></i></span>
-          </label>
-          <input type="checkbox" id="btn-2">
-          <ul>
-            <li>
-              <a routerLink = '/admin/add-product'>
-                Add Product
-              </a>
-            </li>
-            <li>
-              <a data-toggle="modal" data-target="#exampleModal">
-                Add Category
-              </a>
-            </li>
-            <li>
-              <a>
-                Add SubCategory
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <label for="btn-3">Payments
-            <span class="ml-5 pl-5"><i class="fa fa-plus"></i></span>
-          </label>
-          <input type="checkbox" id="btn-3">
-          <ul>
-            <li>
-              <a>
-                Confirm Payment
-              </a>
-            </li>
-            <li>
-              <a>
-                Generate Report
-              </a>
-            </li>
-            <li>
-              <a>
-                Status
-              </a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a>
-            Add Gallery
-          </a>
-        </li>
-        <li>
-          <a>
-            Status
-          </a>
-        </li>
-      </ul>
-    </nav>
+    <div class="container mt-5">
+      <div class="clearfix pl-3">
+        <a routerLink="/admin/" class="float-left">
+          <h4 class="font-weight-bold mt-1">LOGO</h4>
+        </a>
+        <span class="float-right mt-1">
+          <i class="fa fa-facebook mx-1"></i>
+          <i class="fa fa-instagram mx-1"></i>
+          <i class="fa fa-twitter mx-1"></i>
+        </span>
+      </div>
+      <hr class="mt-0">
+    </div>
+    <div class="accordion" id="accordionExample">
+      <div class="card mt-2">
+        <div id="headingOne">
+          <div class="clearfix px-3" data-toggle="collapse" data-target="#Product">
+            <div class="float-left">
+              <div class="media">
+                <i class="fa fa-home font-weight-bold text-muted"></i>
+                <div class="media-body">
+                  <h4 class="font-weight-bold text-muted pl-2">Product</h4>
+                </div>
+              </div>
+            </div>
+            <span class="float-right">
+              <i class="fa fa-chevron-down"></i>
+            </span>
+          </div>
+        </div>
+
+        <div id="Product" class="collapse" data-parent="#accordionExample">
+          <div class="card-body bg-light">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link" routerLink="/admin/add-product">Add product</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-target="exampleModal" data-toggle="modal">Add Category</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Add sub-Category</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div id="headingTwo">
+          <div class="clearfix px-3" data-toggle="collapse" data-target="#Payments">
+            <div class="float-left">
+              <div class="media">
+                <i class="fa fa-dollar font-weight-bold text-muted"></i>
+                <div class="media-body">
+                  <h4 class="font-weight-bold text-muted pl-2">Payments</h4>
+                </div>
+              </div>
+            </div>
+            <span class="float-right">
+              <i class="fa fa-chevron-down"></i>
+            </span>
+          </div>
+        </div>
+        <div id="Payments" class="collapse" data-parent="#accordionExample">
+          <div class="card-body bg-light">
+            <ul class="nav flex-column pb-5">
+              <li class="nav-item">
+                <a class="nav-link">Check Payments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" data-target="exampleModal" data-toggle="modal">Reports</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link">Status</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="clearfix px-3">
+          <div class="media">
+            <i class="fa fa-th-list font-weight-bold text-muted"></i>
+            <div class="media-body">
+              <h4 class="font-weight-bold text-muted pl-2">Orders</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="clearfix px-3">
+          <div class="media">
+            <i class="fa fa-envelope-o font-weight-bold text-muted"></i>
+            <div class="media-body">
+              <h4 class="font-weight-bold text-muted pl-2">Emails</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar class="primary">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -79,18 +114,30 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <div class="container">
-        <span routerLink="/home">tiendra</span>
-        <ul class="nav ml-auto">
-          <li>
-            <a>Log Out</a>
-          </li>
-        </ul>
-      </div>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Overview</li>
+          <li class="breadcrumb-item">Pages</li>
+          <li class="breadcrumb-item">Project</li>
+        </ol>
+      </nav>
+      <ul class="nav ml-auto">
+        <div class="btn-group">
+          <a data-toggle="dropdown">
+            <i class="fa fa-cog"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" style="max-width: 100px">
+            <a class="dropdown-item">Change Account</a>
+            <a class="dropdown-item">Action</a>
+            <a class="dropdown-item">Log Out</a>
+          </div>
+        </div>
+      </ul>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable modal-lg">
     <div class="modal-content">
@@ -99,14 +146,9 @@
           <h4>Press <b>Enter</b> to add a category</h4>
           <form>
             <div class="form-group">
-              <input type="text" class="form-control" #category placeholder="Enter a category" (keyup.enter)="addCategory(category)">
+              <input type="text" class="form-control" #category placeholder="Enter a category">
             </div>
           </form>
-          <ul class="list-group">
-            <li *ngFor="let c of categories" class="list-group-item">
-              {{ c.title }}
-            </li>
-          </ul>
         </div>
       </div>
     </div>
