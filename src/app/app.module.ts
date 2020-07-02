@@ -21,6 +21,14 @@ import { MediaComponent } from './pages/media/media.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { ShoppingComponent } from './pages/shopping/shopping.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -40,13 +48,21 @@ import { ShoppingComponent } from './pages/shopping/shopping.component';
     MediaComponent,
     CheckoutComponent,
     ThankYouComponent,
-    ShoppingComponent
+    ShoppingComponent,
+    SignInComponent,
+    AdminPanelComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
