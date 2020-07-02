@@ -1,0 +1,119 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+      <mat-toolbar>
+        <a routerLink="/admin/" class="text-center">
+          Dashboard
+        </a>
+      </mat-toolbar>
+      <nav>
+        <ul class="menu">
+          <li>
+            <label for="btn-2"> Products
+              <span class="ml-5 pl-5"><i class="fa fa-plus"></i></span>
+            </label>
+            <input type="checkbox" id="btn-2">
+            <ul>
+              <li>
+                <a routerLink = '/admin/add-product'>
+                  Add Product
+                </a>
+              </li>
+              <li>
+                <a data-toggle="modal" data-target="#exampleModal">
+                  Add Category
+                </a>
+              </li>
+              <li>
+                <a>
+                  Add SubCategory
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <label for="btn-3">Payments
+              <span class="ml-5 pl-5"><i class="fa fa-plus"></i></span>
+            </label>
+            <input type="checkbox" id="btn-3">
+            <ul>
+              <li>
+                <a>
+                  Confirm Payment
+                </a>
+              </li>
+              <li>
+                <a>
+                  Generate Report
+                </a>
+              </li>
+              <li>
+                <a>
+                  Status
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a>
+              Add Gallery
+            </a>
+          </li>
+          <li>
+            <a>
+              Status
+            </a>
+          </li>
+        </ul>
+      </nav>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1</a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="container">
+        <span routerLink="/home">tiendra</span>
+        <ul class="nav ml-auto">
+          <li>
+            <a>Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container">
+          <h4>Press <b>Enter</b> to add a category</h4>
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-control" #category placeholder="Enter a category" (keyup.enter)="addCategory(category)">
+            </div>
+          </form>
+          <ul class="list-group">
+            <li *ngFor="let c of categories" class="list-group-item">
+              {{ c.title }}
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

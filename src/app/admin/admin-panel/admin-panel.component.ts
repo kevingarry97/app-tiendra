@@ -9,7 +9,7 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./admin-panel.component.css']
 })
 export class AdminPanelComponent {
-
+  categories = [];
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -18,4 +18,10 @@ export class AdminPanelComponent {
 
   constructor(private breakpointObserver: BreakpointObserver) {}
 
+  addCategory(input: HTMLInputElement) {
+    let post = { title: input.value };
+    input.value = '';
+    this.categories.splice(0, 0, post);
+    console.log(this.categories)
+  }
 }

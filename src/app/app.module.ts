@@ -22,13 +22,15 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { ShoppingComponent } from './pages/shopping/shopping.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
-import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
+import { AddProductComponent } from './admin/add-product/add-product.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { MatListModule } from '@angular/material/list';
     ThankYouComponent,
     ShoppingComponent,
     SignInComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    AddProductComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
