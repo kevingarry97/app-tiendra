@@ -1,11 +1,11 @@
-.bg-image {
+/* .bg-image {
   background: url(./assets/img/IMG-20200622-WA0011.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   height: 50vh;
   background-attachment: fixed;
   padding: 10em 0;;
-}
+} */
 .card {
   margin-top: -40px;
 }
