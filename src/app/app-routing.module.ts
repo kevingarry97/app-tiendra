@@ -6,6 +6,9 @@ import { ReviewsComponent } from './pages/reviews/reviews.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { ShoppingComponent } from './pages/shopping/shopping.component';
 import { ThankYouComponent } from './pages/thank-you/thank-you.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
+import { AddProductComponent } from './admin/add-product/add-product.component';
 
 
 const routes: Routes = [
@@ -16,6 +19,16 @@ const routes: Routes = [
   { path: 'shopping-cart', component: ShoppingComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'thank-you', component: ThankYouComponent },
+
+  // Admin Path
+  {
+    path: 'admin',
+    component: AdminPanelComponent,
+    children: [
+      { path: '', component: DashboardComponent },
+      { path: 'add-product', component: AddProductComponent }
+    ]
+  }
 ];
 
 @NgModule({
