@@ -1,0 +1,19 @@
+.form-group input, textarea{
+  border-radius: 0;
+  margin: 6px 0px;
+}
+.card {
+  border-radius: 0;
+}
+.breadcrumb li a {
+  columns: #a6a6a6 !important;
+  font-size: 13px;
+}
+.btn.btn-danger {
+  background-color: #e28101;
+  color: #f2f2f2;
+  border: none;
+}
+.text-danger {
+  color: #e28101 !important;
+}

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
@@ -17,6 +18,9 @@ import { BannerComponent } from './pages/banner/banner.component';
 import { FlashProductComponent } from './pages/flash-product/flash-product.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { MediaComponent } from './pages/media/media.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { ThankYouComponent } from './pages/thank-you/thank-you.component';
+import { ShoppingComponent } from './pages/shopping/shopping.component';
 
 @NgModule({
   declarations: [
@@ -33,12 +37,16 @@ import { MediaComponent } from './pages/media/media.component';
     BannerComponent,
     FlashProductComponent,
     GalleryComponent,
-    MediaComponent
+    MediaComponent,
+    CheckoutComponent,
+    ThankYouComponent,
+    ShoppingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

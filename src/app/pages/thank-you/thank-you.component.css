@@ -1,0 +1,40 @@
+.bg-image {
+  background: url(../../../assets/img/IMG-20200622-WA0011.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vh;
+  background-attachment: fixed;
+  padding: 10em 0;;
+}
+.card {
+  margin-top: -40px;
+}
+span {
+  display: flex;
+  justify-content: center;
+}
+i {
+  height: 35px;
+  margin: 10px 5px;
+  width: 35px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fa-facebook {
+  background-color: #c4befaa2;
+  color: rgb(70, 70, 236);
+}
+.fa-instagram {
+  background-color: #fabfd7;
+  color: #f53280;
+}
+.fa-github {
+  background-color: #202020;
+  color: #fff;
+}
+.fa-twitter {
+  background-color: #c8f7fd;
+  color: #08cfe9;
+}

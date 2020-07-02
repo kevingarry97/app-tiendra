@@ -1,0 +1,239 @@
+<app-navbar></app-navbar>
+<nav style="background: #e9ecef;">
+  <div class="container">
+    <div class="media py-3">
+      <h3 class="font-weight-bold text-muted mt-2">CHECKOUT</h3>
+      <div class="media-body">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a class="text-muted">HOME</a></li>
+          <li class="breadcrumb-item"><a class="text-muted">CHECKOUT</a></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</nav>
+<section class="my-md-5">
+  <div class="container">
+    <form #f="ngForm" (ngSubmit)="submit(f.value)">
+      <div class="row">
+        <div class="col-md-7">
+          <h4 class="text-muted font-weight-bold my-3">BILLING ADDRESS</h4>
+          <div class="form">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="First Name"
+                    ngModel
+                    #fName="ngModel"
+                    name="fName"
+                    required
+                    minlength="5"
+                  >
+                  <div class="alert alert-danger" *ngIf="fName.invalid && fName.touched">
+                    <div *ngIf="fName.errors.required"> This Field is required!</div>
+                    <div *ngIf="fName.errors.minlength"> This Field length must be {{ fName.errors.minlength.requiredLength }}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Last Name"
+                    ngModel
+                    #lName="ngModel"
+                    name="lName"
+                    required
+                    minlength="5"
+                  >
+                  <div class="alert alert-danger" *ngIf="lName.invalid && lName.touched">
+                    <div *ngIf="lName.errors.required"> This Field is required!</div>
+                    <div *ngIf="lName.errors.minlength"> This Field length must be {{ lName.errors.minlength.requiredLength }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Email"
+                ngModel
+                #email="ngModel"
+                name="email"
+                required
+                email
+              >
+              <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+                <div *ngIf="email.errors.required"> This Field is required!</div>
+                <div *ngIf="email.errors.email"> Provide a valid Email </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Address 1*"
+                ngModel
+                #address="ngModel"
+                name="Address"
+                required
+                minlength="6"
+              >
+              <div class="alert alert-danger" *ngIf="address.invalid && address.touched">
+                <div *ngIf="address.errors.required"> This Field is required!</div>
+                <div *ngIf="address.errors.minlength"> This Field length must be {{ address.errors.minlength.requiredLength }}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Address 2">
+            </div>
+            <div class="row">
+              <div class="col-md-5">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Country"
+                    ngModel
+                    #country="ngModel"
+                    name="country"
+                    required
+                    minlength="4"
+                  >
+                  <div class="alert alert-danger" *ngIf="country.invalid && country.touched">
+                    <div *ngIf="country.errors.required"> This Field is required!</div>
+                    <div *ngIf="country.errors.minlength"> This Field length must be {{ country.errors.minlength.requiredLength }}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="City"
+                    ngModel
+                    #city="ngModel"
+                    name="city"
+                    required
+                    minlength="4"
+                  >
+                  <div class="alert alert-danger" *ngIf="city.invalid && city.touched">
+                    <div *ngIf="city.errors.required"> This Field is required!</div>
+                    <div *ngIf="city.errors.minlength"> This Field length must be {{ city.errors.minlength.requiredLength }}</div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Zip Code">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Phone Number"
+                ngModel
+                #phone="ngModel"
+                name="phone"
+                required
+                minlength="9"
+              >
+              <div class="alert alert-danger" *ngIf="phone.invalid && phone.touched">
+                <div *ngIf="phone.errors.required"> This Field is required!</div>
+                <div *ngIf="phone.errors.minlength"> This Field length must be {{ phone.errors.minlength.requiredLength }}</div>
+              </div>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" rows="4" placeholder="Order Note"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5">
+          <div class="card">
+            <h4 class="card-title text-center my-4 font-weight-bold text-muted">
+              YOUR ORDER
+            </h4>
+            <div class="card-body">
+              <div class="clearfix mb-4">
+                <h5 class="font-weight-bold text-muted float-left"> Product</h5>
+                <h5 class="font-weight-bold text-muted float-right"> Total</h5>
+              </div>
+              <div class="clearfix my-3">
+                <p class="text-muted float-left" style="font-size: 13px;"> Product Name Here</p>
+                <p class="float-right"> $140.00</p>
+              </div>
+              <div class="clearfix my-3">
+                <p class="text-muted float-left" style="font-size: 13px;"> Product Name Here</p>
+                <p class="float-right"> $180.20</p>
+              </div>
+              <div class="clearfix my-3">
+                <p class="text-muted float-left" style="font-size: 13px;"> Shipping</p>
+                <p class="float-right"> <b class="text-muted"> On Delivery </b></p>
+              </div>
+              <div class="clearfix my-4">
+                <h4 class="float-left"><b class="text-muted"> Total </b></h4>
+                <h4 class="float-right"> <b class="text-danger"> $320.20 </b></h4>
+              </div>
+              <a href="#" data-toggle="modal" data-target="#exampleModal">
+                <p class="text-center text-muted font-weight-bold">
+                  Read the terms & Conditions
+                </p>
+              </a>
+                <div class="form-group">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="text Id..."
+                    ngModel
+                    #textId="ngModel"
+                    name="textId"
+                    required
+                    minlength="10"
+                  >
+                  <div class="alert alert-danger" *ngIf="textId.invalid && textId.touched">
+                    <div *ngIf="textId.errors.required"> This Field is required!</div>
+                    <div *ngIf="textId.errors.minlength"> The Mobile Money IdText is invalid</div>
+                  </div>
+                </div>
+                <select
+                  class="custom-select mb-4"
+                  id="delivery"
+                  ngModel
+                  #delivery="ngModel"
+                  name="delivery"
+                  required>
+                  <option selected disabled value="">Delivery </option>
+                  <option>...</option>
+                </select>
+                <div class="alert alert-danger" *ngIf="delivery.invalid && delivery.touched">
+                  <div *ngIf="delivery.errors.required"> This Field is required!</div>
+                </div>
+              <button class="btn btn-danger btn-lg btn-block rounded-pill" [disabled]="!f.valid">Place Order</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+    </div>
+  </div>
+</div>
+<app-subscribe></app-subscribe>
+<app-footer></app-footer>
