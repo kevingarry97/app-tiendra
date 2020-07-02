@@ -18,7 +18,7 @@
           </span>
         </div>
         <div class="col">
-          <span class="hideLarge" routerLink="/shopping">
+          <span class="hideLarge" routerLink="/shopping-cart">
             <i class="fa fa-shopping-cart fa-1x my-2"></i>
           </span>
         </div>
@@ -52,8 +52,19 @@
     <div class="overlay hideLarge" (click)="filterClose()" style="cursor:pointer" #myOverlay></div>
     <div class="product">
       <div class="container">
+        <div class="section-title">
+          <h3 class="title">New Products</h3>
+          <div class="section-nav">
+            <ul class="section-tab-nav tab-nav">
+              <li class="active">
+                <a href="#">All</a>
+              </li>
+            </ul>
+          </div>
+          <hr class="mt-0 pt-0">
+        </div>
         <div class="row">
-          <div class="col-md-4 my-md-0 my-3">
+          <div class="col-md-3 col-6 my-md-0 my-2">
             <div class="card" routerLink="/product">
               <img src="https://demo.createx.studio/cartzilla/img/shop/catalog/02.jpg" class="card-img-top" alt="...">
               <div class="card-body">
