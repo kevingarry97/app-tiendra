@@ -1,78 +1,73 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
-      <mat-toolbar>
-        <a routerLink="/admin/" class="text-center">
-          Dashboard
-        </a>
-      </mat-toolbar>
-      <nav>
-        <ul class="menu">
-          <li>
-            <label for="btn-2"> Products
-              <span class="ml-5 pl-5"><i class="fa fa-plus"></i></span>
-            </label>
-            <input type="checkbox" id="btn-2">
-            <ul>
-              <li>
-                <a routerLink = '/admin/add-product'>
-                  Add Product
-                </a>
-              </li>
-              <li>
-                <a data-toggle="modal" data-target="#exampleModal">
-                  Add Category
-                </a>
-              </li>
-              <li>
-                <a>
-                  Add SubCategory
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <label for="btn-3">Payments
-              <span class="ml-5 pl-5"><i class="fa fa-plus"></i></span>
-            </label>
-            <input type="checkbox" id="btn-3">
-            <ul>
-              <li>
-                <a>
-                  Confirm Payment
-                </a>
-              </li>
-              <li>
-                <a>
-                  Generate Report
-                </a>
-              </li>
-              <li>
-                <a>
-                  Status
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a>
-              Add Gallery
-            </a>
-          </li>
-          <li>
-            <a>
-              Status
-            </a>
-          </li>
-        </ul>
-      </nav>
-    <mat-nav-list>
-      <a mat-list-item href="#">Link 1</a>
-      <a mat-list-item href="#">Link 2</a>
-      <a mat-list-item href="#">Link 3</a>
-    </mat-nav-list>
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      <a routerLink="/admin/" class="text-center">
+        Dashboard
+      </a>
+    </mat-toolbar>
+    <nav>
+      <ul class="menu">
+        <li>
+          <label for="btn-2"> Products
+            <span class="ml-5 pl-5"><i class="fa fa-plus"></i></span>
+          </label>
+          <input type="checkbox" id="btn-2">
+          <ul>
+            <li>
+              <a routerLink = '/admin/add-product'>
+                Add Product
+              </a>
+            </li>
+            <li>
+              <a data-toggle="modal" data-target="#exampleModal">
+                Add Category
+              </a>
+            </li>
+            <li>
+              <a>
+                Add SubCategory
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <label for="btn-3">Payments
+            <span class="ml-5 pl-5"><i class="fa fa-plus"></i></span>
+          </label>
+          <input type="checkbox" id="btn-3">
+          <ul>
+            <li>
+              <a>
+                Confirm Payment
+              </a>
+            </li>
+            <li>
+              <a>
+                Generate Report
+              </a>
+            </li>
+            <li>
+              <a>
+                Status
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <a>
+            Add Gallery
+          </a>
+        </li>
+        <li>
+          <a>
+            Status
+          </a>
+        </li>
+      </ul>
+    </nav>
   </mat-sidenav>
   <mat-sidenav-content>
     <mat-toolbar color="primary">

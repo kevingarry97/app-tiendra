@@ -1,1 +1,226 @@
-<p>add-product works!</p>
+<section class="m-md-5 mx-2 my-4">
+  <div class="row">
+    <div class="col-lg-7">
+      <h1 class="text-danger font-weight-bold my-4"> Upload Product</h1>
+      <form #f="ngForm" (ngSubmit)="submit(f.value)">
+        <div class="form-group mt-5">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Product name*"
+            ngModel
+            #productName="ngModel"
+            name="productName"
+            required
+            minlength="5"
+          >
+          <div class="alert alert-danger" *ngIf="productName.invalid && productName.touched">
+            <div *ngIf="productName.errors.required"> The field is required</div>
+            <div *ngIf="productName.errors.minlength"> The minimum characters must be {{ productName.errors.minlength.requiredLength }}</div>
+          </div>
+        </div>
+        <div class="row my-4">
+          <div class="col-md-6 mb-4 m-md-0">
+            <select class="custom-select" id="category" ngModel #Category="ngModel" name="Category" required>
+              <option selected disabled value="">Category *</option>
+              <option>Clothes</option>
+              <option>Furniture</option>
+              <option>Electronics</option>
+            </select>
+            <div class="alert alert-danger" *ngIf="Category.invalid && Category.touched">
+              <div *ngIf="Category.errors.required"> The Select box is required</div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <select class="custom-select" id="subCategory" ngModel #subCategory="ngModel" name="subCategory" required>
+              <option selected disabled value="">Sub-category * </option>
+              <option>Men</option>
+              <option>Women</option>
+              <option>Kids</option>
+            </select>
+            <div class="alert alert-danger" *ngIf="subCategory.invalid && subCategory.touched">
+              <div *ngIf="subCategory.errors.required"> The Select box is required</div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mt-2 mb-4">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Size*"
+            ngModel
+            #size="ngModel"
+            name="size"
+            required
+          >
+          <div class="alert alert-danger" *ngIf="size.invalid && size.touched">
+            <div *ngIf="size.errors.required"> The field is required</div>
+          </div>
+        </div>
+        <div class="row mb-2">
+          <div class="col-md-6 mb-2 m-md-0">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Availability*"
+                ngModel
+                #availability="ngModel"
+                name="availability"
+                required
+              >
+              <div class="alert alert-danger" *ngIf="availability.invalid && availability.touched">
+                <div *ngIf="availability.errors.required"> The field is required</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Color*"
+                ngModel
+                #Color="ngModel"
+                name="Color"
+                required
+              >
+              <div class="alert alert-danger" *ngIf="Color.invalid && Color.touched">
+                <div *ngIf="Color.errors.required"> The field is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <textarea
+            rows="3"
+            class="form-control"
+            placeholder="Caption*"
+            ngModel
+            #Caption="ngModel"
+            name="Caption"
+            required
+            minlength="15"
+            ></textarea>
+            <div class="alert alert-danger" *ngIf="Caption.invalid && Caption.touched">
+              <div *ngIf="Caption.errors.required"> The field is required</div>
+              <div *ngIf="Caption.errors.minlength"> Minimum characters must be {{ Caption.errors.minlength.requiredLength }}</div>
+            </div>
+        </div>
+        <div class="row mt-4 mb-2">
+          <div class="col-md-6">
+            <div class="form-group mb-4 m-md-0">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Item*"
+                ngModel
+                #Item="ngModel"
+                name="Item"
+                required
+                minlength="3"
+              >
+              <div class="alert alert-danger" *ngIf="Item.invalid && Item.touched">
+                <div *ngIf="Item.errors.required"> The field is required</div>
+                <div *ngIf="Item.errors.minlength"> Minimum characters must be {{ Item.errors.minlength.requiredLength }}</div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Tag*"
+                ngModel
+                #Tag="ngModel"
+                name="Tag"
+                required
+              >
+              <div class="alert alert-danger" *ngIf="Tag.invalid && Tag.touched">
+                <div *ngIf="Tag.errors.required"> The field is required</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group mb-4">
+          <input type="file" ngModel #Images="ngModel" name="Images" required>
+          <div class="alert alert-danger" *ngIf="Images.invalid && Images.touched">
+            <div *ngIf="Images.errors.required"> The field is required</div>
+          </div>
+        </div>
+        <div class="form-group mb-4">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Details*"
+            ngModel
+            #Details="ngModel"
+            name="Details"
+            required
+          >
+          <div class="alert alert-danger" *ngIf="Details.invalid && Details.touched">
+            <div *ngIf="Details.errors.required"> The field is required</div>
+          </div>
+        </div>
+        <div class="form-group mb-4">
+          <textarea
+            rows="5"
+            class="form-control"
+            placeholder="Description*"
+            ngModel
+            #Description="ngModel"
+            name="Description"
+            required
+            minlength="15"
+          ></textarea>
+          <div class="alert alert-danger" *ngIf="Description.invalid && Description.touched">
+            <div *ngIf="Description.errors.required"> The field is required</div>
+            <div *ngIf="Description.errors.minlength"> Minimum characters must be {{ Description.errors.minlength.requiredLength }}</div>
+          </div>
+        </div>
+        <div class="form-group mb-4">
+          <input type="file" ngModel #desc_Image="ngModel" name="desc_image" required>
+          <div class="alert alert-danger" *ngIf="desc_Image.invalid && desc_Image.touched">
+            <div *ngIf="desc_Image.errors.required"> The field is required</div>
+          </div>
+        </div>
+        <button class="btn btn-danger btn-block" [disabled]="!f.valid"> Upload </button>
+      </form>
+    </div>
+    <div class="col-lg-5 mt-md-3 mt-5">
+      <div class="card shadow">
+        <div class="card-body">
+          <h3 class="card-title font-weight-bold text-muted text-center">{{ productName.value }}</h3>
+          <p class="font-weight-bold text-muted mb-0 pb-0">{{ Category.value }}</p>
+          <p class="mt-0 pt-0 text-muted">{{ subCategory.value }}</p>
+          <div class="clearfix">
+            <div class="float-left">
+              <h5 class="font-weight-bold text-muted">{{ availability.value }}</h5>
+            </div>
+            <div class="float-right">
+              <h5 class="font-weight-bold text-muted">{{ Color.value }} </h5>
+            </div>
+          </div>
+          <div class="clearfix">
+            <div class="float-left">
+              <h5 class="font-weight-bold text-muted">{{ Tag.value }}</h5>
+            </div>
+            <div class="float-right">
+              <h5 class="font-weight-bold text-muted">{{ Item.value }} </h5>
+            </div>
+          </div>
+          <p>{{ Caption.value }}</p>
+          <p *ngIf="Details.value">
+            <span class="fa fa-check text-danger"></span>
+            {{ Details.value }}
+          </p>
+          <p>
+            {{ Description.value }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
