@@ -13,6 +13,7 @@
 .clearfix a {
   font-size: 16px;
   color: #eb8005;
+  border: 0;
   display: flex;
   justify-content: center;
 }
@@ -76,6 +77,10 @@
 .nav li {
   font-size: 15px;
   padding: 5px 0px;
+}
+
+.nav li a {
+  color: #202020 !important;
 }
 .card {
   border: 0;
