@@ -42,14 +42,16 @@ export class AddProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSelect(e) {
-    if(e.target.files) {
-      for(let i = 0; i < File.length; i++) {
-        var reader = new FileReader()
-        reader.readAsDataURL(e.target.files[i])
-        reader.onload = (events: any) => {
-          this.urls.push(events.target.results)
+  onSelect(event) {
+    if (event.target.files && event.target.files[0]) {
+      var filesAmount = event.target.files.length;
+      for (let i = 0; i < filesAmount; i++) {
+        var reader = new FileReader();
+        reader.onload = (event:any) => {
+          console.log(event.target.result);
+          this.urls.push(event.target.result);
         }
+        reader.readAsDataURL(event.target.files[i]);
       }
     }
   }
