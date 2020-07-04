@@ -81,6 +81,7 @@
 
 .nav li a {
   color: #202020 !important;
+  cursor: pointer;
 }
 .card {
   border: 0;

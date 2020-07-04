@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'tiendra';
+  // form;
+  // constructor(fb: FormBuilder) {
+  //   this.form = fb.group({
+  //     sizes: fb.array([])
+  //   });
+  // }
+
+  // addSize(input: HTMLInputElement) {
+  //   (this.form.get('sizes') as FormArray).push(new FormControl(input.value))
+  //   input.value = '';
+  // }
+
+  // login() {
+  //   console.log(this.form.value);
+  // }
 }

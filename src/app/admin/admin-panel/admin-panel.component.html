@@ -41,10 +41,10 @@
                 <a class="nav-link" routerLink="/admin/add-product">Add product</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" data-target="exampleModal" data-toggle="modal">Add Category</a>
+                <a class="nav-link" data-target="#categoryModal" data-toggle="modal">Add Category</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link">Add sub-Category</a>
+                <a class="nav-link" data-target="#subCategoryModal" data-toggle="modal">Add sub-Category</a>
               </li>
             </ul>
           </div>
@@ -126,7 +126,7 @@
           <a data-toggle="dropdown">
             <i class="fa fa-cog"></i>
           </a>
-          <div class="dropdown-menu dropdown-menu-right" style="max-width: 100px">
+          <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item">Change Account</a>
             <a class="dropdown-item">Action</a>
             <a class="dropdown-item">Log Out</a>
@@ -138,7 +138,7 @@
   </mat-sidenav-content>
 </mat-sidenav-container>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="categoryModal" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-dialog-scrollable modal-lg">
     <div class="modal-content">
       <div class="modal-body">
@@ -148,6 +148,31 @@
             <div class="form-group">
               <input type="text" class="form-control" #category placeholder="Enter a category">
             </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="subCategoryModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="container">
+          <form>
+            <div class="form-group">
+              <select class="custom-select">
+                <option selected disabled value="">Category *</option>
+                <option>Clothes</option>
+                <option>Furniture</option>
+                <option>Electronics</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" #category placeholder="Enter a category">
+            </div>
+            <button class="btn btn-danger btn-block"> Save sub-category</button>
           </form>
         </div>
       </div>
