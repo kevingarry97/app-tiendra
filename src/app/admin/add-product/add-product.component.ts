@@ -22,7 +22,8 @@ export class AddProductComponent implements OnInit {
       tag: ['', Validators.required],
       sizes: fb.array([]),
       details: fb.array([]),
-      description: ['', [Validators.required, Validators.minLength(15)]]
+      description: ['', [Validators.required, Validators.minLength(15)]],
+      amount: ['', Validators.required]
     })
   }
 
@@ -38,6 +39,7 @@ export class AddProductComponent implements OnInit {
     get sizes() { return this.form.get('sizes') }
     get details() { return this.form.get('details') }
     get description() { return this.form.get('description') }
+    get amount() { return this.form.get('amount') }
 
   ngOnInit(): void {
   }

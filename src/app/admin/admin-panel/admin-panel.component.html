@@ -146,7 +146,15 @@
           <h4>Press <b>Enter</b> to add a category</h4>
           <form>
             <div class="form-group">
-              <input type="text" class="form-control" #category placeholder="Enter a category">
+              <input
+                type="text"
+                class="form-control"
+                #category placeholder="Enter a category"
+                (keyup.enter)="addCategory(category)"
+              >
+              <div class="alert alert-danger" *ngIf="errorMsg">
+                {{ errorMsg }}
+              </div>
             </div>
           </form>
         </div>
@@ -160,19 +168,23 @@
     <div class="modal-content">
       <div class="modal-body">
         <div class="container">
-          <form>
+          <form [formGroup]="form" (ngSubmit)="addSub()">
             <div class="form-group">
-              <select class="custom-select">
+              <select class="custom-select" formControlName="categoryId">
                 <option selected disabled value="">Category *</option>
-                <option>Clothes</option>
-                <option>Furniture</option>
-                <option>Electronics</option>
+                <option *ngFor="let c of categories" [value]="c._id"> {{ c.name}}</option>
               </select>
+              <div *ngIf="category.invalid && category.touched" class="alert alert-danger">
+                This field is required
+              </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" #category placeholder="Enter a category">
+              <input type="text" class="form-control" placeholder="Enter a category" formControlName="name">
+              <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
+                This field is required
+              </div>
             </div>
-            <button class="btn btn-danger btn-block"> Save sub-category</button>
+            <button class="btn btn-danger btn-block" [disabled]="!form.valid"> Save sub-category</button>
           </form>
         </div>
       </div>
