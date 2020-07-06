@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
+import { CategoryService } from '../shared/category.service';
 
 @Component({
   selector: 'app-add-product',
@@ -7,10 +8,17 @@ import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms'
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
+  categories: any = [];
+  subCates:any = [];
+  selectSub = [];
+  modifiedCategory: string;
   form;
   urls = [];
   img;
-  constructor(fb: FormBuilder) {
+  constructor(
+    private catService: CategoryService,
+    fb: FormBuilder
+  ) {
     this.form = fb.group({
       productName: ['', [Validators.required, Validators.minLength(5)]],
       category: ['', Validators.required],
@@ -23,7 +31,8 @@ export class AddProductComponent implements OnInit {
       sizes: fb.array([]),
       details: fb.array([]),
       description: ['', [Validators.required, Validators.minLength(15)]],
-      amount: ['', Validators.required]
+      amount: ['', Validators.required],
+      images: ['', Validators.required]
     })
   }
 
@@ -40,30 +49,47 @@ export class AddProductComponent implements OnInit {
     get details() { return this.form.get('details') }
     get description() { return this.form.get('description') }
     get amount() { return this.form.get('amount') }
+    get images() { return this.form.get('images') }
 
   ngOnInit(): void {
+    this.catService.getCategory()
+      .subscribe((cat) => {
+        this.categories = cat
+      })
+    this.catService.getSubs()
+      .subscribe((sub) => {
+        this.subCates = sub
+      })
+  }
+
+  onCategoryChanged(val: any) {
+    this.customFunction(val);
+    this.selectSub = (this.subCates
+      .filter(item => item.category['name'] === val)
+      .map(subs => ({name: subs['name']})));
+  }
+
+  customFunction(val: any) {
+    this.modifiedCategory = val;
+  }
+
+  saveProduct() {
+    if(!this.form.valid) return;
+
+    console.log(this.form.value);
   }
 
   onSelect(event) {
     if (event.target.files && event.target.files[0]) {
-      var filesAmount = event.target.files.length;
+      this.form.patchValue({images: event.target.files});
+      this.form.get('images').updateValueAndValidity()
+      const filesAmount = event.target.files.length;
       for (let i = 0; i < filesAmount; i++) {
         var reader = new FileReader();
         reader.onload = (event:any) => {
-          console.log(event.target.result);
           this.urls.push(event.target.result);
         }
         reader.readAsDataURL(event.target.files[i]);
-      }
-    }
-  }
-
-  selectFile(event) {
-    if(event.target.files) {
-      var reader = new FileReader();
-      reader.readAsDataURL(event.target.files[0])
-      reader.onload = (event: any) => {
-        this.img = event.target.result;
       }
     }
   }

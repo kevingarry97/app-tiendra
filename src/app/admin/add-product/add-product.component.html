@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-lg-7">
       <h1 class="text-danger font-weight-bold my-4"> Upload Product</h1>
-      <form [formGroup]="form">
+      <form [formGroup]="form" (ngSubmit)="saveProduct()">
         <div class="form-group">
           <input
             formControlName="productName"
@@ -17,11 +17,11 @@
         </div>
         <div class="row my-4">
           <div class="col-md-6 mb-4 m-md-0">
-            <select class="custom-select" id="category" formControlName="category">
+            <select class="custom-select" (ngModelChange)="onCategoryChanged($event)" formControlName="category">
               <option selected disabled value="">Category *</option>
-              <option>Clothes</option>
-              <option>Furniture</option>
-              <option>Electronics</option>
+              <option *ngFor="let c of categories" [value]="c.name">
+                {{ c.name }}
+              </option>
             </select>
             <div class="alert alert-danger" *ngIf="category.invalid && category.touched">
               Field is required
@@ -30,9 +30,9 @@
           <div class="col-md-6">
             <select class="custom-select" id="subCategory" formControlName="subCategory">
               <option selected disabled value="">Sub-category * </option>
-              <option>Men</option>
-              <option>Women</option>
-              <option>Kids</option>
+              <option *ngFor="let s of selectSub" [value]="s.name">
+                {{ s.name }}
+              </option>
             </select>
             <div class="alert alert-danger" *ngIf="subCategory.invalid && subCategory.touched">
               Field is required
@@ -137,7 +137,7 @@
           <!-- <button mat-raised-button>Pick Image</button> -->
           <input type='file' (change)="onSelect($event)" multiple>
           <div class="row">
-            <div class="col-md-3" *ngFor='let url of urls'>
+            <div class="col-md-3 m-2" *ngFor='let url of urls'>
               <img [src]="url" class="img-fluid">
             </div>
           </div>
@@ -186,12 +186,6 @@
           >
           <div *ngIf="amount.invalid && amount.touched" class="alert alert-danger">
             This field is required
-          </div>
-        </div>
-        <div class="form-group">
-          <input type="file" (change)="selectFile($event)">
-          <div class="col-12 my-3">
-            <img [src]="img" alt="" class="img-fluid">
           </div>
         </div>
         <button class="btn btn-danger btn-block" [disabled]="!form.valid"> Upload </button>

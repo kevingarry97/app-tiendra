@@ -21,4 +21,8 @@ export class CategoryService {
   getCategory() {
     return this.http.get('http://localhost:3000/api/categories');
   }
+
+  getSubs() {
+    return this.http.get('http://localhost:3000/api/sub');
+  }
 }
