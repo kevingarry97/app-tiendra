@@ -1,4 +1,4 @@
-import { Category } from './category.module';
+import { Category } from './category';
 
 export interface SubCategories {
   _id?: string;

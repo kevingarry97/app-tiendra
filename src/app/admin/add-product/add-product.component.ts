@@ -32,7 +32,7 @@ export class AddProductComponent implements OnInit {
       details: fb.array([]),
       description: ['', [Validators.required, Validators.minLength(15)]],
       amount: ['', Validators.required],
-      images: ['', Validators.required]
+      images: (['', Validators.required])
     })
   }
 
@@ -65,8 +65,8 @@ export class AddProductComponent implements OnInit {
   onCategoryChanged(val: any) {
     this.customFunction(val);
     this.selectSub = (this.subCates
-      .filter(item => item.category['name'] === val)
-      .map(subs => ({name: subs['name']})));
+      .filter(item => item.category['_id'] === val)
+      .map(subs => ({_id: subs['_id'], name: subs['name']})));
   }
 
   customFunction(val: any) {

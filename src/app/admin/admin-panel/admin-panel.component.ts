@@ -3,9 +3,9 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 import { CategoryService } from '../shared/category.service';
-import { Category } from '../shared/modules/category.module';
+import { Category } from '../shared/modules/category';
 import { FormBuilder, Validators } from '@angular/forms';
-import { SubCategories } from '../shared/modules/sub-category.module';
+import { SubCategories } from '../shared/modules/sub-category';
 
 @Component({
   selector: 'app-admin-panel',

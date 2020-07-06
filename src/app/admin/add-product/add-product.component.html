@@ -19,7 +19,7 @@
           <div class="col-md-6 mb-4 m-md-0">
             <select class="custom-select" (ngModelChange)="onCategoryChanged($event)" formControlName="category">
               <option selected disabled value="">Category *</option>
-              <option *ngFor="let c of categories" [value]="c.name">
+              <option *ngFor="let c of categories" [value]="c._id">
                 {{ c.name }}
               </option>
             </select>
@@ -30,7 +30,7 @@
           <div class="col-md-6">
             <select class="custom-select" id="subCategory" formControlName="subCategory">
               <option selected disabled value="">Sub-category * </option>
-              <option *ngFor="let s of selectSub" [value]="s.name">
+              <option *ngFor="let s of selectSub" [value]="s._id">
                 {{ s.name }}
               </option>
             </select>
