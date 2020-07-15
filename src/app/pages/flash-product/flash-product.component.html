@@ -14,15 +14,15 @@
               <div class="card" routerLink="/product">
                 <img [src]="d.product.image[0]" class="card-img-top" alt="...">
                 <div class="box">
-                  {{ d.percentage }}
+                  {{ d.percentage }} %
                 </div>
                 <p>{{ d.product.product.productName }}</p>
                 <div class="clearfix">
                   <p class="font-weight-bold text-muted pt-2 float-left">
-                    <del> {{ d.product.product.amount }} </del>
+                    <del> {{ d.product.product.amount | currency: 'RWF' }} </del>
                   </p>
                   <p class="font-weight-bold text-danger pt-2 float-right">
-                    {{ d.newAmount }}
+                    {{ d.newAmount | currency: 'RWF' }}
                   </p>
                 </div>
               </div>
