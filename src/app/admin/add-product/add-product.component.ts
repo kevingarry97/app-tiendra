@@ -92,7 +92,6 @@ export class AddProductComponent implements OnInit {
         console.log(data)
         this.relateId = data['_id']
       })
-    this.router.navigate(['/admin'])
   }
 
   onSelect(event) {
@@ -122,6 +121,7 @@ export class AddProductComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
       })
+    this.router.navigate(['/admin'])
   }
 
   addSize(size: HTMLInputElement) {
