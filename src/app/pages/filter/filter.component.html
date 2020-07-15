@@ -1,7 +1,7 @@
 <div class="dropdown" *ngFor="let c of categories">
   <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" (click)="custom(c)">
     {{ c.name }}
-  <span class="caret"></span></button>
+  </button>
   <ul class="dropdown-menu">
     <li *ngFor="let s of subs">
       <a routerLink="/home" [queryParams]="{ cat: s.category.name, sub: s.name }">{{ s.name }}</a>

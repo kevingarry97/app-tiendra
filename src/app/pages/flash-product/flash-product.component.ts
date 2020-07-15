@@ -15,7 +15,6 @@ export class FlashProductComponent implements OnInit {
     this.productService.getDiscount()
       .subscribe((data: any) => {
         this.discounts = data;
-        console.log(this.discounts);
       })
   }
 
