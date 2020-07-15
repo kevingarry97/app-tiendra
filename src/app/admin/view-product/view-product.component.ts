@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../shared/product.service';
-import { FormBuilder, Validators, NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-view-product',
@@ -16,7 +14,7 @@ export class ViewProductComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
-    private http: HttpClient
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -30,10 +28,8 @@ export class ViewProductComponent implements OnInit {
   }
 
   addToDiscount() {
-    this.http.post("https://server-tienda.herokuapp.com/api/discount", {id: this.id, percentage: +this.percentage})
-      .subscribe(data => {
-        console.log(data);
-      })
+    this.productService.addToDiscount(this.id, +this.percentage)
+    this.router.navigate(['/admin'])
   }
 
 }

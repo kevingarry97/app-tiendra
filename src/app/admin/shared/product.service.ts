@@ -21,4 +21,11 @@ export class ProductService {
   getOne(id) {
     return this.http.get(`https://server-tienda.herokuapp.com/api/product/${id}`)
   }
+
+  addToDiscount(id: number, percentage) {
+    return this.http.post("https://server-tienda.herokuapp.com/api/discount", {id, percentage})
+      .subscribe(data => {
+        console.log(data);
+      })
+  }
 }
