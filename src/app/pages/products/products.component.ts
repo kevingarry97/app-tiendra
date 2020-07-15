@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ProductsService } from '../shared/products.service';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
-import { ShoppingCartService } from '../shared/shopping-cart.service';
 
 @Component({
   selector: 'app-products',
@@ -18,10 +17,8 @@ export class ProductsComponent implements OnInit {
   filteredProducts = [];
   category: string;
   subCategory: string;
-  carts: any;
 
   constructor(
-    private cartService: ShoppingCartService,
     private route: ActivatedRoute,
     private productService: ProductsService
   ) {
@@ -30,7 +27,7 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.productService.getProduct()
-      .pipe(switchMap((data: any[]) => {
+      .pipe(switchMap((data: any) => {
         this.products = data;
         return this.route.queryParamMap;
       }))
@@ -43,6 +40,7 @@ export class ProductsComponent implements OnInit {
           .filter(p => p.product.category.name === this.category && p.product.subCategory.name === this.subCategory) :
           this.products
       })
+    console.log(this.filteredProducts)
   }
 
   filterOpen() {

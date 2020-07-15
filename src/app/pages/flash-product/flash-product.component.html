@@ -10,64 +10,21 @@
         </div>
         <div class="card containee px-2">
           <div class="row">
-            <div class="col-lg-2 col-md-4 col-6 my-3">
+            <div class="col-lg-2 col-md-4 col-6 my-3" *ngFor="let d of discounts">
               <div class="card" routerLink="/product">
-                <img src="https://demo.createx.studio/cartzilla/img/shop/catalog/10.jpg" class="card-img-top" alt="...">
+                <img [src]="d.product.image[0]" class="card-img-top" alt="...">
                 <div class="box">
-                  18%
+                  {{ d.percentage }}
                 </div>
-                <p>5-Pack Bracelets</p>
-                <p class="font-weight-bold text-muted pt-2">RWF 1200</p>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 my-3">
-              <div class="card">
-                <img src="https://demo.createx.studio/cartzilla/img/shop/catalog/08.jpg" class="card-img-top" alt="...">
-                <div class="box">
-                  4%
+                <p>{{ d.product.product.productName }}</p>
+                <div class="clearfix">
+                  <p class="font-weight-bold text-muted pt-2 float-left">
+                    <del> {{ d.product.product.amount }} </del>
+                  </p>
+                  <p class="font-weight-bold text-danger pt-2 float-right">
+                    {{ d.newAmount }}
+                  </p>
                 </div>
-                <p>Soft Panda Bear</p>
-                <p class="font-weight-bold text-muted pt-2">RWF 4000</p>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 my-3">
-              <div class="card">
-                <img src="https://demo.createx.studio/cartzilla/img/shop/catalog/09.jpg" class="card-img-top" alt="...">
-                <div class="box">
-                  8%
-                </div>
-                <p>Cosmetics</p>
-                <p class="font-weight-bold text-muted pt-2">RWF 2000</p>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 my-3">
-              <div class="card">
-                <img src="https://demo.createx.studio/cartzilla/img/shop/catalog/07.jpg" class="card-img-top" alt="...">
-                <div class="box">
-                  12%
-                </div>
-                <p>Women Swimwear</p>
-                <p class="font-weight-bold text-muted pt-2">RWF 9000</p>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 my-3">
-              <div class="card">
-                <img src="https://demo.createx.studio/cartzilla/img/shop/catalog/01.jpg" class="card-img-top" alt="...">
-                <div class="box">
-                  6%
-                </div>
-                <p>Sneakers</p>
-                <p class="font-weight-bold text-muted pt-2">RWF 13000</p>
-              </div>
-            </div>
-            <div class="col-lg-2 col-md-4 col-6 my-3">
-              <div class="card">
-                <img src="https://demo.createx.studio/cartzilla/img/shop/catalog/11.jpg" class="card-img-top" alt="...">
-                <div class="box">
-                  15%
-                </div>
-                <p>Sandals</p>
-                <p class="font-weight-bold text-muted pt-2">RWF 8000</p>
               </div>
             </div>
           </div>

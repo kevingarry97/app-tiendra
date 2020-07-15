@@ -13,6 +13,7 @@ export class ProductCardComponent implements OnInit {
     private cartService: ShoppingCartService,) { }
 
   ngOnInit(): void {
+    console.log(this.product);
   }
 
   addToCart() {

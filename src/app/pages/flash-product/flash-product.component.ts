@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/admin/shared/product.service';
 
 @Component({
   selector: 'app-flash-product',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlashProductComponent implements OnInit {
 
-  constructor() { }
+  discounts: [];
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
+    this.productService.getDiscount()
+      .subscribe((data: any) => {
+        this.discounts = data;
+        console.log(this.discounts);
+      })
   }
 
 }
