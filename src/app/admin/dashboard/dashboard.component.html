@@ -51,29 +51,33 @@
             <td>Tag</td>
             <td>Owner</td>
             <td>Amount</td>
-            <td></td>
+            <td>Percentage</td>
+            <td>New Amount</td>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of product">
+          <tr *ngFor="let d of discount">
             <th class="row">
-              <img src="{{p.image[0]}}" style="height: 5vh;" alt="">
+              <img src="{{d.product.image[0]}}" style="height: 5vh;" alt="">
             </th>
 
             <td>
-              {{ p.product.productName }}
+              {{ d.product.product.productName }}
             </td>
             <td>
-              {{ p.product.tag }}
+              {{ d.product.product.tag }}
             </td>
             <td>
-              {{ p.product.owner }}
+              {{ d.product.product.owner }}
             </td>
             <td>
-              {{ p.product.amount }}
+              {{ d.product.product.amount }}
             </td>
             <td>
-              <a [routerLink]="['/admin/dashboard/', p._id]">Edit</a>
+              {{ d.percentage }}
+            </td>
+            <td>
+              {{ d.newAmount }}
             </td>
           </tr>
         </tbody>
