@@ -16,7 +16,7 @@
       </div>
       <hr class="mt-0">
     </div>
-    <div class="accordion" id="accordionExample">
+    <div class="accordion" id="accordionExample" *ngIf="authService.currentUser.isAdmin">
       <div class="card my-3">
         <div id="headingOne">
           <div class="clearfix px-3" data-toggle="collapse" data-target="#Product">
@@ -68,9 +68,9 @@
         </div>
         <div id="Payments" class="collapse" data-parent="#accordionExample">
           <div class="card-body bg-light">
-            <ul class="nav flex-column pb-5">
+            <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link">Check Payments</a>
+                <a class="nav-link" routerLink="/admin/images">Check Payments</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" data-target="exampleModal" data-toggle="modal">Reports</a>
@@ -129,7 +129,7 @@
           <div class="dropdown-menu dropdown-menu-right">
             <a class="dropdown-item">Change Account</a>
             <a class="dropdown-item">Action</a>
-            <a class="dropdown-item">Log Out</a>
+            <a (click)="authService.logOut()" class="dropdown-item">Log Out</a>
           </div>
         </div>
       </ul>
@@ -179,7 +179,7 @@
               </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Enter a category" formControlName="name">
+              <input type="text" class="form-control" placeholder="Enter a sub-category" formControlName="name">
               <div *ngIf="name.invalid && name.touched" class="alert alert-danger">
                 This field is required
               </div>

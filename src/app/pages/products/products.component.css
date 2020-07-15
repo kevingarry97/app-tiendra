@@ -62,20 +62,6 @@
 }
 
 /* !. SECTION*/
-.card {
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.35);
-  border: 0;
-  border-radius: 0;
-  border-bottom-left-radius: 15px;
-}
-.card h6 {
-  font-size: 13px;
-}
-.card p {
-  color: #e28101;
-  font-size: 15px;
-  font-weight: 700;
-}
 span {
   display: flex;
   justify-content: center;
@@ -127,8 +113,9 @@ i {
 }
 @media (min-width: 993px) {
   .sideOut, .collapse{
-    display:block!important;
+    display:  block!important;
     border-bottom-left-radius: 2em;
+    min-height: 45vh;
     margin-top: -.10rem !important;
   }
   .cards {

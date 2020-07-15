@@ -11,18 +11,18 @@ export class CategoryService {
   constructor(private http: HttpClient) { }
 
   addCategory(category: Category) {
-    return this.http.post<{message: string}>('http://localhost:3000/api/categories', category)
+    return this.http.post<{message: string}>('https://server-tienda.herokuapp.com/api/categories', category)
   }
 
   addSubs(sub: SubCategories) {
-    return this.http.post('http://localhost:3000/api/sub', sub);
+    return this.http.post('https://server-tienda.herokuapp.com/api/sub', sub);
   }
 
   getCategory() {
-    return this.http.get('http://localhost:3000/api/categories');
+    return this.http.get('https://server-tienda.herokuapp.com/api/categories');
   }
 
   getSubs() {
-    return this.http.get('http://localhost:3000/api/sub');
+    return this.http.get('https://server-tienda.herokuapp.com/api/sub');
   }
 }

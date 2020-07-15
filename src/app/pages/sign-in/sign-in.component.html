@@ -1,6 +1,6 @@
 <section class="my-5">
-  <div class="container">
-    <div class="row">
+  <div class="container pt-md-5">
+    <div class="row mt-md-5">
       <div class="col-md-6">
         <div class="bg-image">
           <img src="../assets/img/IMG-20200622-WA0011.jpg" class="img-fluid w-100" alt="">
@@ -9,13 +9,23 @@
       <div class="col-md-6">
         <div class="card shadow p-4">
           <h4 class="card-title font-weight-bold text-muted m-4">User Sign In</h4>
+          <div class="alert alert-danger" *ngIf="invalidLogin">
+            Invalid username or/and password
+          </div>
           <div class="card-body">
-            <form>
+            <form [formGroup]="form" (ngSubmit)="signIn()">
               <div class="form-group mb-4">
-                <input type="text" class="form-control" placeholder="Email *">
+                <input type="text" class="form-control" placeholder="Email *" formControlName="email">
+                <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
+                  <div *ngIf="email.errors.required"> Email fiend is required</div>
+                  <div *ngIf="email.errors.email"> Provide a valid email</div>
+                </div>
               </div>
               <div class="form-group my-4">
-                <input type="password" class="form-control" placeholder="Password *">
+                <input type="password" class="form-control" placeholder="Password *" formControlName="password">
+                <div class="alert alert-danger" *ngIf="password.invalid && password.touched">
+                  Password field is required
+                </div>
               </div>
               <button class="btn btn-danger px-5"> <b> Sign In </b> </button>
             </form>

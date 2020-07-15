@@ -2,4 +2,40 @@
   <h2 class="font-weight-bold">
     Dashboard
   </h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <td>Image</td>
+        <td>Title</td>
+        <td>Tag</td>
+        <td>Owner</td>
+        <td>Amount</td>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of product">
+        <th class="row">
+          <img src="{{p.image[0]}}" style="height: 5vh;" alt="">
+        </th>
+
+        <td>
+          {{ p.product.productName }}
+        </td>
+        <td>
+          {{ p.product.tag }}
+        </td>
+        <td>
+          {{ p.product.owner }}
+        </td>
+        <td>
+          {{ p.product.amount }}
+        </td>
+        <td>
+          <a [routerLink]="['/admin/dashboard/', p._id]">Edit</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </section>

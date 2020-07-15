@@ -14,7 +14,7 @@
 </nav>
 <section class="my-md-5">
   <div class="container">
-    <form #f="ngForm" (ngSubmit)="submit(f.value)">
+    <form [formGroup]="form" (ngSubmit)="saveOrder()">
       <div class="row">
         <div class="col-md-7">
           <h4 class="text-muted font-weight-bold my-3">BILLING ADDRESS</h4>
@@ -26,15 +26,12 @@
                     type="text"
                     class="form-control"
                     placeholder="First Name"
-                    ngModel
-                    #fName="ngModel"
-                    name="fName"
-                    required
-                    minlength="5"
+                    formControlName="firstName"
                   >
-                  <div class="alert alert-danger" *ngIf="fName.invalid && fName.touched">
-                    <div *ngIf="fName.errors.required"> This Field is required!</div>
-                    <div *ngIf="fName.errors.minlength"> This Field length must be {{ fName.errors.minlength.requiredLength }}</div>
+                  <div class="alert alert-danger" *ngIf="firstName.invalid && firstName.touched">
+                    <div *ngIf="firstName.errors.required"> This Field is required!</div>
+                    <div *ngIf="firstName.errors.minlength"> This Field length must be {{ firstName.errors.minlength.requiredLength }}</div>
+                    <div *ngIf="firstName.errors.maxlength"> This Field length must be {{ firstName.errors.maxlength.requiredLength }}</div>
                   </div>
                 </div>
               </div>
@@ -44,15 +41,12 @@
                     type="text"
                     class="form-control"
                     placeholder="Last Name"
-                    ngModel
-                    #lName="ngModel"
-                    name="lName"
-                    required
-                    minlength="5"
+                    formControlName="lastName"
                   >
-                  <div class="alert alert-danger" *ngIf="lName.invalid && lName.touched">
-                    <div *ngIf="lName.errors.required"> This Field is required!</div>
-                    <div *ngIf="lName.errors.minlength"> This Field length must be {{ lName.errors.minlength.requiredLength }}</div>
+                  <div class="alert alert-danger" *ngIf="lastName.invalid && lastName.touched">
+                    <div *ngIf="lastName.errors.required"> This Field is required!</div>
+                    <div *ngIf="lastName.errors.minlength"> This Field length must be {{ lastName.errors.minlength.requiredLength }}</div>
+                    <div *ngIf="lastName.errors.maxlength"> This Field length must be {{ lastName.errors.maxlength.requiredLength }}</div>
                   </div>
                 </div>
               </div>
@@ -62,11 +56,7 @@
                 type="email"
                 class="form-control"
                 placeholder="Email"
-                ngModel
-                #email="ngModel"
-                name="email"
-                required
-                email
+                formControlName="email"
               >
               <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
                 <div *ngIf="email.errors.required"> This Field is required!</div>
@@ -78,15 +68,11 @@
                 type="text"
                 class="form-control"
                 placeholder="Address 1*"
-                ngModel
-                #address="ngModel"
-                name="Address"
-                required
-                minlength="6"
+                formControlName="adress1"
               >
-              <div class="alert alert-danger" *ngIf="address.invalid && address.touched">
-                <div *ngIf="address.errors.required"> This Field is required!</div>
-                <div *ngIf="address.errors.minlength"> This Field length must be {{ address.errors.minlength.requiredLength }}</div>
+              <div class="alert alert-danger" *ngIf="adress1.invalid && adress1.touched">
+                <div *ngIf="adress1.errors.required"> This Field is required!</div>
+                <div *ngIf="adress1.errors.minlength"> This Field length must be {{ adress1.errors.minlength.requiredLength }}</div>
               </div>
             </div>
             <div class="form-group">
@@ -99,15 +85,12 @@
                     type="text"
                     class="form-control"
                     placeholder="Country"
-                    ngModel
-                    #country="ngModel"
-                    name="country"
-                    required
-                    minlength="4"
+                    formControlName="country"
                   >
                   <div class="alert alert-danger" *ngIf="country.invalid && country.touched">
                     <div *ngIf="country.errors.required"> This Field is required!</div>
                     <div *ngIf="country.errors.minlength"> This Field length must be {{ country.errors.minlength.requiredLength }}</div>
+                    <div *ngIf="country.errors.maxlength"> This Field length must be {{ country.errors.maxlength.requiredLength }}</div>
                   </div>
                 </div>
               </div>
@@ -117,15 +100,12 @@
                     type="text"
                     class="form-control"
                     placeholder="City"
-                    ngModel
-                    #city="ngModel"
-                    name="city"
-                    required
-                    minlength="4"
+                    formControlName="city"
                   >
                   <div class="alert alert-danger" *ngIf="city.invalid && city.touched">
                     <div *ngIf="city.errors.required"> This Field is required!</div>
                     <div *ngIf="city.errors.minlength"> This Field length must be {{ city.errors.minlength.requiredLength }}</div>
+                    <div *ngIf="city.errors.maxlength"> This Field length must be {{ city.errors.maxlength.requiredLength }}</div>
                   </div>
                 </div>
               </div>
@@ -140,15 +120,10 @@
                 type="number"
                 class="form-control"
                 placeholder="Phone Number"
-                ngModel
-                #phone="ngModel"
-                name="phone"
-                required
-                minlength="9"
+                formControlName="phone"
               >
               <div class="alert alert-danger" *ngIf="phone.invalid && phone.touched">
                 <div *ngIf="phone.errors.required"> This Field is required!</div>
-                <div *ngIf="phone.errors.minlength"> This Field length must be {{ phone.errors.minlength.requiredLength }}</div>
               </div>
             </div>
             <div class="form-group">
@@ -157,30 +132,27 @@
           </div>
         </div>
         <div class="col-md-5">
-          <div class="card">
+          <div class="card shadow border-0">
             <h4 class="card-title text-center my-4 font-weight-bold text-muted">
               YOUR ORDER
             </h4>
             <div class="card-body">
               <div class="clearfix mb-4">
-                <h5 class="font-weight-bold text-muted float-left"> Product</h5>
-                <h5 class="font-weight-bold text-muted float-right"> Total</h5>
+                <h2 class="font-weight-bold text-muted float-left"> Product</h2>
+                <h2 class="font-weight-bold text-muted float-right"> Total</h2>
               </div>
-              <div class="clearfix my-3">
-                <p class="text-muted float-left" style="font-size: 13px;"> Product Name Here</p>
-                <p class="float-right"> $140.00</p>
+              <div class="clearfix my-3" *ngFor="let c of carts['products']">
+                <p class="text-muted float-left" style="font-size: 15px;"> {{ c.item.product.productName }} </p>
+                <p class="float-right font-weight-bold" style="font-size: 12px;">{{ c.item.product.amount | currency: 'RWF' }}</p>
               </div>
-              <div class="clearfix my-3">
-                <p class="text-muted float-left" style="font-size: 13px;"> Product Name Here</p>
-                <p class="float-right"> $180.20</p>
-              </div>
-              <div class="clearfix my-3">
-                <p class="text-muted float-left" style="font-size: 13px;"> Shipping</p>
-                <p class="float-right"> <b class="text-muted"> On Delivery </b></p>
-              </div>
+              <hr>
               <div class="clearfix my-4">
                 <h4 class="float-left"><b class="text-muted"> Total </b></h4>
-                <h4 class="float-right"> <b class="text-danger"> $320.20 </b></h4>
+                <h4 class="float-right"> <b class="text-danger"> {{ carts.totalPrice | currency: 'RWF' }} </b></h4>
+              </div>
+              <div class="clearfix my-3">
+                <p class="text-muted float-left" style="font-size: 15px;"> Shipping</p>
+                <p class="float-right"> <b class="text-muted"> On Delivery </b></p>
               </div>
               <a href="#" data-toggle="modal" data-target="#terms">
                 <p class="text-center text-muted font-weight-bold">
@@ -192,31 +164,21 @@
                     type="text"
                     class="form-control"
                     placeholder="text Id..."
-                    ngModel
-                    #textId="ngModel"
-                    name="textId"
-                    required
-                    minlength="10"
+                    formControlName="textId"
                   >
                   <div class="alert alert-danger" *ngIf="textId.invalid && textId.touched">
                     <div *ngIf="textId.errors.required"> This Field is required!</div>
                     <div *ngIf="textId.errors.minlength"> The Mobile Money IdText is invalid</div>
+                    <div *ngIf="textId.errors.maxlength"> The Mobile Money IdText is invalid</div>
                   </div>
                 </div>
                 <select
                   class="custom-select mb-4"
-                  id="delivery"
-                  ngModel
-                  #delivery="ngModel"
-                  name="delivery"
-                  required>
+                  id="delivery">
                   <option selected disabled value="">Delivery </option>
                   <option>...</option>
                 </select>
-                <div class="alert alert-danger" *ngIf="delivery.invalid && delivery.touched">
-                  <div *ngIf="delivery.errors.required"> This Field is required!</div>
-                </div>
-              <button class="btn btn-danger btn-lg btn-block rounded-pill" [disabled]="!f.valid">Place Order</button>
+              <button class="btn btn-danger btn-lg btn-block rounded-pill" [disabled]="form.invalid">Place Order</button>
             </div>
           </div>
         </div>

@@ -17,24 +17,24 @@
         </div>
         <div class="row my-4">
           <div class="col-md-6 mb-4 m-md-0">
-            <select class="custom-select" (ngModelChange)="onCategoryChanged($event)" formControlName="category">
+            <select class="custom-select" (ngModelChange)="onCategoryChanged($event)" formControlName="categoryId">
               <option selected disabled value="">Category *</option>
               <option *ngFor="let c of categories" [value]="c._id">
                 {{ c.name }}
               </option>
             </select>
-            <div class="alert alert-danger" *ngIf="category.invalid && category.touched">
+            <div class="alert alert-danger" *ngIf="categoryId.invalid && categoryId.touched">
               Field is required
             </div>
           </div>
           <div class="col-md-6">
-            <select class="custom-select" id="subCategory" formControlName="subCategory">
+            <select class="custom-select" id="subCategory" formControlName="subCategoryId">
               <option selected disabled value="">Sub-category * </option>
               <option *ngFor="let s of selectSub" [value]="s._id">
                 {{ s.name }}
               </option>
             </select>
-            <div class="alert alert-danger" *ngIf="subCategory.invalid && subCategory.touched">
+            <div class="alert alert-danger" *ngIf="subCategoryId.invalid && subCategoryId.touched">
               Field is required
             </div>
           </div>
@@ -133,13 +133,10 @@
             </div>
           </div>
         </div>
-        <div class="form-group mb-4">
-          <!-- <button mat-raised-button>Pick Image</button> -->
-          <input type='file' (change)="onSelect($event)" multiple>
-          <div class="row">
-            <div class="col-md-3 m-2" *ngFor='let url of urls'>
-              <img [src]="url" class="img-fluid">
-            </div>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Owner" formControlName="owner">
+          <div class="alert alert-danger" *ngIf="owner.invalid && owner.touched">
+            Field is required!
           </div>
         </div>
         <div class="form-group mb-4">
@@ -188,9 +185,23 @@
             This field is required
           </div>
         </div>
-        <button class="btn btn-danger btn-block" [disabled]="!form.valid"> Upload </button>
+        <button class="btn btn-danger btn-block" [disabled]="!form.valid" data-target="#collapseExample" data-toggle="collapse">
+          Uploads
+        </button>
       </form>
+      <div class="collapse shadow mt-4 p-4" id="collapseExample">
+        <form [formGroup]="imageForm" (ngSubmit)="onSave()">
+          <div class="form-group mb-4">
+            <input type="file" (change)="onSelect($event)" multiple>
+            <div class="row">
+              <div class="col-md-3 m-2" *ngFor='let url of urls'>
+                <img [src]="url" class="img-fluid">
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-danger btn-block"> Save product</button>
+        </form>
+      </div>
     </div>
   </div>
 </section>
-

@@ -6,6 +6,7 @@ import { CategoryService } from '../shared/category.service';
 import { Category } from '../shared/modules/category';
 import { FormBuilder, Validators } from '@angular/forms';
 import { SubCategories } from '../shared/modules/sub-category';
+import { AuthService } from 'src/app/pages/shared/auth.service';
 
 @Component({
   selector: 'app-admin-panel',
@@ -24,6 +25,7 @@ export class AdminPanelComponent implements OnInit {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
+    public authService: AuthService,
     private catService: CategoryService,
     fb: FormBuilder
   ) {

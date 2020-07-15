@@ -1,4 +1,8 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { ProductsService } from '../shared/products.service';
+import { ActivatedRoute } from '@angular/router';
+import { switchMap } from 'rxjs/operators';
+import { ShoppingCartService } from '../shared/shopping-cart.service';
 
 @Component({
   selector: 'app-products',
@@ -10,9 +14,35 @@ export class ProductsComponent implements OnInit {
   @ViewChild('myOverlay', { static: true }) myOverlay: ElementRef;
   @ViewChild('filter', { static: true }) filter: ElementRef;
 
-  constructor() { }
+  products = [];
+  filteredProducts = [];
+  category: string;
+  subCategory: string;
+  carts: any;
+
+  constructor(
+    private cartService: ShoppingCartService,
+    private route: ActivatedRoute,
+    private productService: ProductsService
+  ) {
+
+  }
 
   ngOnInit(): void {
+    this.productService.getProduct()
+      .pipe(switchMap((data: any[]) => {
+        this.products = data;
+        return this.route.queryParamMap;
+      }))
+      .subscribe(params => {
+        this.category = params.get('cat')
+        this.subCategory = params.get('sub')
+
+        this.filteredProducts = (this.category && this.subCategory) ?
+          this.products
+          .filter(p => p.product.category.name === this.category && p.product.subCategory.name === this.subCategory) :
+          this.products
+      })
   }
 
   filterOpen() {

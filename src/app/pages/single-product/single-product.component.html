@@ -5,7 +5,7 @@
       <li class="breadcrumb-item"><a href="#">Home</a></li>
       <li class="breadcrumb-item"><a href="#">Product name</a></li>
       <li class="breadcrumb-item"><a href="#">category</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Item</li>
+      <li class="breadcrumb-item">{{ product.product.item }}</li>
     </ol>
   </div>
 </nav>
@@ -14,94 +14,45 @@
     <div class="row">
       <div class="col-lg-5">
         <div id="product-main-img">
-          <div class="product-preview">
-            <img src="../assets/img/product01.png" alt="">
-          </div>
-
-          <div class="product-preview">
-            <img src="../assets/img/product03.png" alt="">
-          </div>
-
-          <div class="product-preview">
-            <img src="../assets/img/product06.png" alt="">
-          </div>
-
-          <div class="product-preview">
-            <img src="../assets/img/product08.png" alt="">
+          <div class="product-preview" *ngFor="let t of product.image">
+            <img [src]="t" alt="">
           </div>
         </div>
       </div>
       <div class="col-lg-2 mt-lg-5">
         <div id="product-imgs">
-          <div class="product-preview">
-            <img src="../assets/img/product01.png" alt="">
-          </div>
-          <div class="product-preview">
-            <img src="../assets/img/product03.png" alt="">
-          </div>
-
-          <div class="product-preview">
-            <img src="../assets/img/product06.png" alt="">
-          </div>
-
-          <div class="product-preview">
-            <img src="../assets/img/product08.png" alt="">
+          <div class="product-preview" *ngFor="let t of product.image">
+            <img [src]="t" alt="">
           </div>
         </div>
       </div>
       <div class="col-lg-4 offset-lg-1 mt-lg-5">
-        <h3 class="pb-2">Product name</h3>
-        <h2 class="text-danger pb-3"> $80</h2>
-        <p><b class="text-muted">Availability:</b> In Stock</p>
-        <p><b class="text-muted">Tags:</b> Black Lenovo</p>
-        <p><b class="text-muted">Color:</b> red</p>
+        <h1 class="font-weight-bold text-muted">{{ product.product.productName }}</h1>
+        <h2 class="text-danger pb-1"> {{ product.product.amount | currency: 'RWF' }}</h2>
+        <p><b class="text-muted">Availability:</b> {{ product.product.availability }}</p>
+        <p><b class="text-muted">Tags:</b> {{ product.product.tag }}</p>
+        <p><b class="text-muted">Color:</b> {{ product.product.colors }}</p>
         <p class="font-weight-normal text-muted mt-3">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit voluptates vel quia in inventore! Eaque.
+          {{ product.product.caption }}
         </p>
         <ul class="nav flex-column mt-2">
-          <li class="nav-item my-1">
+          <li class="nav-item my-1" *ngFor="let detail of product.product.details">
             <span>
               <li class="fa fa-check text-danger"></li>
             </span>
-            Operate incredibly
-          </li>
-          <li class="nav-item my-1">
-            <span>
-              <li class="fa fa-check text-danger"></li>
-            </span>
-            Awesome functionality
-          </li>
-          <li class="nav-item my-1">
-            <span>
-              <li class="fa fa-check text-danger"></li>
-            </span>
-            5GB RAM
-          </li>
-          <li class="nav-item my-1">
-            <span>
-              <li class="fa fa-check text-danger"></li>
-            </span>
-            Updated window
-          </li>
-          <li class="nav-item my-1">
-            <span>
-              <li class="fa fa-check text-danger"></li>
-            </span>
-            Well Maintained
+            {{ detail }}
           </li>
         </ul>
         <div class="row">
           <div class="col-5 mt-4">
             <select class="custom-select" id="inputGroupSelect01">
-              <option selected>Size</option>
-              <option value="1">One</option>
-              <option value="2">Two</option>
-              <option value="3">Three</option>
+              <option selected disabled value="">Size</option>
+              <option *ngFor="let size of product.product.sizes" [value]="size"> {{ size }} </option>
             </select>
           </div>
           <div class="col-7">
             <div class="add-to-cart">
-              <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+              <button class="add-to-cart-btn" (click)="addToCart(product)"><i class="fa fa-shopping-cart"></i> add to cart</button>
             </div>
           </div>
         </div>
@@ -116,42 +67,18 @@
             <div class="tab-pane fade show active" id="tab1">
               <div class="row">
                 <div class="col-md-6">
-                  <img src="../assets/img/hoddy.jpg" class="img-fluid" alt="">
+                  <img [src]="product.image[0]" class="img-fluid" alt="">
                 </div>
                 <div class="col-md-6 mt-md-5 pt-md-5">
                   <p class="text-muted font-weight-normal ">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt possimus ipsa illo quos consectetur quia. Aliquid dolores veniam dicta, minus non sed molestias. Dolor sit ullam similique, illo debitis obcaecati.
+                    {{ product.product.description }}
                   </p>
                   <ul class="nav flex-column mt-2 px-5">
-                    <li class="nav-item my-1">
+                    <li class="nav-item my-1" *ngFor="let detail of product.product.details">
                       <span>
                         <li class="fa fa-check text-danger"></li>
                       </span>
-                      Operate incredibly
-                    </li>
-                    <li class="nav-item my-1">
-                      <span>
-                        <li class="fa fa-check text-danger"></li>
-                      </span>
-                      Awesome functionality
-                    </li>
-                    <li class="nav-item my-1">
-                      <span>
-                        <li class="fa fa-check text-danger"></li>
-                      </span>
-                      5GB RAM
-                    </li>
-                    <li class="nav-item my-1">
-                      <span>
-                        <li class="fa fa-check text-danger"></li>
-                      </span>
-                      Updated window
-                    </li>
-                    <li class="nav-item my-1">
-                      <span>
-                        <li class="fa fa-check text-danger"></li>
-                      </span>
-                      Well Maintained
+                      {{ detail }}
                     </li>
                   </ul>
                 </div>

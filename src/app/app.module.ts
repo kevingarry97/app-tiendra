@@ -27,7 +27,9 @@ import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { MaterialModule } from './material/material.module';
-import { SideMenuComponent } from './admin/side-menu/side-menu.component';
+import { NoAccessComponent } from './pages/no-access/no-access.component';
+import { ProductCardComponent } from './pages/product-card/product-card.component';
+import { ViewProductComponent } from './admin/view-product/view-product.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { SideMenuComponent } from './admin/side-menu/side-menu.component';
     AdminPanelComponent,
     AddProductComponent,
     DashboardComponent,
-    SideMenuComponent
+    NoAccessComponent,
+    ProductCardComponent,
+    ViewProductComponent
   ],
   imports: [
     BrowserModule,

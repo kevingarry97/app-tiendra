@@ -56,29 +56,16 @@
           <h3 class="title">New Products</h3>
           <div class="section-nav">
             <ul class="section-tab-nav tab-nav">
-              <li class="active">
-                <a href="#">All</a>
+              <li [class.active]="!category">
+                <a routerLink="/home">All</a>
               </li>
             </ul>
           </div>
           <hr class="mt-0 pt-0">
         </div>
         <div class="row">
-          <div class="col-md-3 col-6 my-md-0 my-2">
-            <div class="card" routerLink="/product">
-              <img src="https://demo.createx.studio/cartzilla/img/shop/catalog/02.jpg" class="card-img-top" alt="...">
-              <div class="card-body">
-                <h6 class="card-text m-0">Women's T-Shirt</h6>
-                <p class="font-weight-bold text-muted m-0 mb-2"> Female</p>
-                <div class="clearfix">
-                  <p class="float-left mt-2">RWF4000 </p>
-                  <span class="float-right mt-md-1">
-                    <i class="fa fa-shopping-cart"></i>
-                    <i class="fa fa-heart"></i>
-                  </span>
-                </div>
-              </div>
-            </div>
+          <div class="col-xl-2 col-sm-4 col-6 my-md-0 my-2" *ngFor="let p of filteredProducts">
+            <app-product-card [product]="p"></app-product-card>
           </div>
         </div>
       </div>

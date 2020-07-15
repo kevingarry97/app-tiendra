@@ -1,25 +1,17 @@
-import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ShoppingCartService } from './pages/shared/shopping-cart.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  // form;
-  // constructor(fb: FormBuilder) {
-  //   this.form = fb.group({
-  //     sizes: fb.array([])
-  //   });
-  // }
+export class AppComponent implements OnInit {
 
-  // addSize(input: HTMLInputElement) {
-  //   (this.form.get('sizes') as FormArray).push(new FormControl(input.value))
-  //   input.value = '';
-  // }
+  constructor(private cartService: ShoppingCartService) {}
 
-  // login() {
-  //   console.log(this.form.value);
-  // }
+  ngOnInit() {
+    this.cartService.getCart()
+  }
+
 }

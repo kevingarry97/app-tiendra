@@ -3,6 +3,10 @@
   margin-left: -4em;
 }
 @media only screen and (max-width: 767px){
+  .card {
+    margin-top: 5em;
+    margin-left: 0em;
+  }
   .bg-image {
     display: none;
   }

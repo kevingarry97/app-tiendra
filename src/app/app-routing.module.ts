@@ -9,27 +9,35 @@ import { ThankYouComponent } from './pages/thank-you/thank-you.component';
 import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
+import { AuthGuard } from './pages/shared/auth-guard.service';
+import { NoAccessComponent } from './pages/no-access/no-access.component';
+import { ViewProductComponent } from './admin/view-product/view-product.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'product', component: SingleProductComponent },
+  { path: 'product/:id', component: SingleProductComponent },
   { path: 'reviews', component: ReviewsComponent },
   { path: 'shopping-cart', component: ShoppingComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'thank-you', component: ThankYouComponent },
 
   // Admin Path
+  { path: 'sign-in', component: SignInComponent },
   {
     path: 'admin',
     component: AdminPanelComponent,
     children: [
       { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
-      { path: 'add-product', component: AddProductComponent }
-    ]
-  }
+      { path: 'add-product', component: AddProductComponent },
+      { path: 'dashboard/:id', component: ViewProductComponent }
+    ], canActivate: [ AuthGuard ]
+  },
+
+  { path: 'no-access', component: NoAccessComponent }
 ];
 
 @NgModule({

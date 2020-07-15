@@ -27,7 +27,9 @@
           <li routerLink="/shopping-cart">
             <i class="fa fa-shopping-cart"></i>
 						<span> Your Cart </span>
-						<sup class="qty">3</sup>
+						<sup class="qty">
+              {{ cartItemCount || 0 }}
+            </sup>
           </li>
         </div>
       </div>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { CategoryService } from '../shared/category.service';
+import { ProductService } from '../shared/product.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-add-product',
@@ -11,45 +13,52 @@ export class AddProductComponent implements OnInit {
   categories: any = [];
   subCates:any = [];
   selectSub = [];
+  relateId: string;
   modifiedCategory: string;
   form;
   urls = [];
-  img;
+  images = [];
+  imageForm;
   constructor(
+    private http: HttpClient,
+    private productService: ProductService,
     private catService: CategoryService,
     fb: FormBuilder
   ) {
     this.form = fb.group({
       productName: ['', [Validators.required, Validators.minLength(5)]],
-      category: ['', Validators.required],
-      subCategory: ['', Validators.required],
+      categoryId: ['', Validators.required],
+      subCategoryId: ['', Validators.required],
       availability: ['', Validators.required],
       colors: ['', Validators.required],
       caption: ['', [Validators.required, Validators.minLength(10)]],
       item: ['', Validators.required],
+      owner: ['', Validators.required],
       tag: ['', Validators.required],
       sizes: fb.array([]),
       details: fb.array([]),
       description: ['', [Validators.required, Validators.minLength(15)]],
-      amount: ['', Validators.required],
-      images: (['', Validators.required])
+      amount: ['', Validators.required]
+    });
+    this.imageForm = fb.group({
+      image: ['', Validators.required]
     })
   }
 
   // Validations
     get productName() { return this.form.get('productName'); }
-    get category() { return this.form.get('category'); }
-    get subCategory() { return this.form.get('subCategory'); }
+    get categoryId() { return this.form.get('categoryId'); }
+    get subCategoryId() { return this.form.get('subCategoryId'); }
     get availability() { return this.form.get('availability') }
     get colors() { return this.form.get('colors') }
     get caption() { return this.form.get('caption') }
+    get owner() { return this.form.get('owner') }
     get item() { return this.form.get('item') }
     get tag() { return this.form.get('tag') }
     get sizes() { return this.form.get('sizes') }
     get details() { return this.form.get('details') }
     get description() { return this.form.get('description') }
     get amount() { return this.form.get('amount') }
-    get images() { return this.form.get('images') }
 
   ngOnInit(): void {
     this.catService.getCategory()
@@ -76,13 +85,18 @@ export class AddProductComponent implements OnInit {
   saveProduct() {
     if(!this.form.valid) return;
 
-    console.log(this.form.value);
+    this.productService.addProduct(this.form.value)
+      .subscribe((data) => {
+        console.log(data)
+        this.relateId = data['_id']
+      })
   }
 
   onSelect(event) {
-    if (event.target.files && event.target.files[0]) {
-      this.form.patchValue({images: event.target.files});
-      this.form.get('images').updateValueAndValidity()
+    if(event.target.files.length > 0) {
+      this.images = event.target.files
+      this.imageForm.patchValue({image: event.target.files});
+      this.imageForm.get('image').updateValueAndValidity()
       const filesAmount = event.target.files.length;
       for (let i = 0; i < filesAmount; i++) {
         var reader = new FileReader();
@@ -92,6 +106,19 @@ export class AddProductComponent implements OnInit {
         reader.readAsDataURL(event.target.files[i]);
       }
     }
+  }
+
+  onSave() {
+    let formData = new FormData()
+    for(let img of this.images) {
+      formData.append('files', img)
+    }
+    formData.append('productId', this.relateId)
+
+      this.http.post('https://server-tienda.herokuapp.com/api/upload-images', formData)
+      .subscribe(data => {
+        console.log(data)
+      })
   }
 
   addSize(size: HTMLInputElement) {
