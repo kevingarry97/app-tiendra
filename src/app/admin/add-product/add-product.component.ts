@@ -3,6 +3,7 @@ import { FormBuilder, Validators, FormArray, FormControl } from '@angular/forms'
 import { CategoryService } from '../shared/category.service';
 import { ProductService } from '../shared/product.service';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-product',
@@ -21,6 +22,7 @@ export class AddProductComponent implements OnInit {
   imageForm;
   constructor(
     private http: HttpClient,
+    private router: Router,
     private productService: ProductService,
     private catService: CategoryService,
     fb: FormBuilder
@@ -90,6 +92,7 @@ export class AddProductComponent implements OnInit {
         console.log(data)
         this.relateId = data['_id']
       })
+    this.router.navigate(['/admin'])
   }
 
   onSelect(event) {
