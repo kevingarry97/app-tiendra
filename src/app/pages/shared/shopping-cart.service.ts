@@ -28,7 +28,7 @@ export class ShoppingCartService {
 
   getCart() {
     return this.http.get('https://server-tienda.herokuapp.com/api/shopping-cart', {
-      withCredentials: true // ========> Important
+      withCredentials: true
     }).subscribe((data: any) => {
       this.cartStore.next(data)
     })

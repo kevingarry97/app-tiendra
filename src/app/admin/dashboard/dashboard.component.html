@@ -1,6 +1,6 @@
 <section class="m-md-5 mx-2 my-4">
   <h2 class="font-weight-bold">
-    Dashboard
+    Available products
   </h2>
 
   <table class="table">
@@ -38,4 +38,46 @@
       </tr>
     </tbody>
   </table>
+  <h2 class="font-weight-bold mt-md-5 mb-3">
+    Available products
+  </h2>
+  <div class="row">
+    <div class="col-md-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>Image</td>
+            <td>Title</td>
+            <td>Tag</td>
+            <td>Owner</td>
+            <td>Amount</td>
+            <td></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of product">
+            <th class="row">
+              <img src="{{p.image[0]}}" style="height: 5vh;" alt="">
+            </th>
+
+            <td>
+              {{ p.product.productName }}
+            </td>
+            <td>
+              {{ p.product.tag }}
+            </td>
+            <td>
+              {{ p.product.owner }}
+            </td>
+            <td>
+              {{ p.product.amount }}
+            </td>
+            <td>
+              <a [routerLink]="['/admin/dashboard/', p._id]">Edit</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </section>
