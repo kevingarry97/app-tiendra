@@ -78,62 +78,12 @@
       </div>
     </div>
   </div>
-  <div class="card shadow border-0">
-    <div class="card-header bg-white">
-      <div class="clearfix">
-        <h3 class="font-weight-bold">Available products</h3>
-      </div>
-    </div>
-    <div class="card-body">
-      <div class="table-responsive">
-        <table class="table">
-          <thead class="thead-light">
-            <tr>
-              <th scope="col">Images</th>
-              <th scope="col">Title</th>
-              <th scope="col">Tag</th>
-              <th scope="col">Owner</th>
-              <th scope="col">Amount</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr *ngFor="let p of product">
-              <th scope="row">
-                <img [src]="p.image[0]" style="height: 5vh;" alt="">
-              </th>
-              <td>
-                {{ p.product.productName }}
-              </td>
-              <td>
-                {{ p.product.tag }}
-              </td>
-              <td>
-                {{ p.product.owner }}
-              </td>
-              <td>
-                {{ p.product.amount }}
-              </td>
-              <td>
-                <div class="d-inline p-2" [routerLink]="['/admin/dashboard/', p._id]">
-                  <span class="p-1 rounded" style="background-color: #f1f1fd;">
-                    <i class="fa fa-pencil-square-o mr-1"></i>
-                    Edit
-                  </span>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-  <div class="row mt-md-5 mb-3">
-    <div class="col-md-6">
+  <div class="row">
+    <div class="col-lg-8">
       <div class="card shadow border-0">
         <div class="card-header bg-white">
           <div class="clearfix">
-            <h3 class="font-weight-bold">Latest Order</h3>
+            <h3 class="font-weight-bold">Available products</h3>
           </div>
         </div>
         <div class="card-body">
@@ -146,32 +96,33 @@
                   <th scope="col">Tag</th>
                   <th scope="col">Owner</th>
                   <th scope="col">Amount</th>
-                  <th scope="col">Percentage</th>
-                  <th scope="col">New Amount</th>
+                  <th scope="col"></th>
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let d of discount">
+                <tr *ngFor="let p of product">
                   <th scope="row">
-                    <img [src]="d.product.image[0]" style="height: 5vh;" alt="">
+                    <img [src]="p.image[0]" style="height: 5vh;" alt="">
                   </th>
                   <td>
-                    {{ d.product.product.productName }}
+                    {{ p.product.productName }}
                   </td>
                   <td>
-                    {{ d.product.product.tag }}
+                    {{ p.product.tag }}
                   </td>
                   <td>
-                    {{ d.product.product.owner }}
+                    {{ p.product.owner }}
                   </td>
                   <td>
-                    {{ d.product.product.amount }}
+                    {{ p.product.amount }}
                   </td>
                   <td>
-                    {{ d.percentage }}
-                  </td>
-                  <td>
-                    {{ d.newAmount }}
+                    <div class="d-inline p-2" [routerLink]="['/admin/dashboard/', p._id]">
+                      <span class="p-1 rounded" style="background-color: #f1f1fd;">
+                        <i class="fa fa-pencil-square-o mr-1"></i>
+                        Edit
+                      </span>
+                    </div>
                   </td>
                 </tr>
               </tbody>

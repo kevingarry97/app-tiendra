@@ -13,6 +13,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { AuthGuard } from './pages/shared/auth-guard.service';
 import { NoAccessComponent } from './pages/no-access/no-access.component';
 import { ViewProductComponent } from './admin/view-product/view-product.component';
+import { OrdersComponent } from './admin/orders/orders.component';
 
 
 const routes: Routes = [
@@ -33,7 +34,8 @@ const routes: Routes = [
       { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'add-product', component: AddProductComponent },
-      { path: 'dashboard/:id', component: ViewProductComponent }
+      { path: 'dashboard/:id', component: ViewProductComponent },
+      { path: 'orders', component: OrdersComponent }
     ], canActivate: [ AuthGuard ]
   },
 

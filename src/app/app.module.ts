@@ -30,6 +30,7 @@ import { MaterialModule } from './material/material.module';
 import { NoAccessComponent } from './pages/no-access/no-access.component';
 import { ProductCardComponent } from './pages/product-card/product-card.component';
 import { ViewProductComponent } from './admin/view-product/view-product.component';
+import { OrdersComponent } from './admin/orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { ViewProductComponent } from './admin/view-product/view-product.componen
     DashboardComponent,
     NoAccessComponent,
     ProductCardComponent,
-    ViewProductComponent
+    ViewProductComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
