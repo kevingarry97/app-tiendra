@@ -1,6 +1,6 @@
 
 <section class="m-md-5 mx-2 my-4">
-  <div class="row">
+  <div class="row mb-4">
     <div class="col-md-3 .col-sm-6">
       <div class="card shadow border-0">
         <div class="card-body pb-0">
@@ -95,9 +95,9 @@
       </thead>
       <tbody>
         <tr *ngFor="let p of product">
-          <th class="row">
+          <td class="row">
             <img src="{{p.image[0]}}" style="height: 5vh;" alt="">
-          </th>
+          </td>
           <td>
             {{ p.product.productName }}
           </td>
@@ -137,9 +137,9 @@
           </thead>
           <tbody>
             <tr *ngFor="let d of discount">
-              <th class="row">
+              <td class="row">
                 <img src="{{d.product.image[0]}}" style="height: 5vh;" alt="">
-              </th>
+              </td>
 
               <td>
                 {{ d.product.product.productName }}
