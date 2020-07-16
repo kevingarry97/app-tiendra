@@ -1,4 +1,4 @@
-<div class="card" style="cursor: pointer;">
+<div class="card" [routerLink]="['/product/', product._id]" style="cursor: pointer;">
   <img [src]="product.image[0]" class="card-img-top" alt="...">
   <div class="card-body px-3">
     <h4 class="card-text m-0">{{ product.product.productName }}</h4>

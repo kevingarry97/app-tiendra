@@ -13,7 +13,7 @@ declare let $: any;
 })
 export class SingleProductComponent implements OnInit, AfterViewInit {
   id: string;
-  product: any;
+  product;
   constructor(
     private cartService: ShoppingCartService,
     private route: ActivatedRoute,
@@ -25,6 +25,7 @@ export class SingleProductComponent implements OnInit, AfterViewInit {
     this.productService.getSingleProduct(this.id)
       .subscribe((data: any) => {
         this.product = data;
+        console.log(this.product)
       })
   }
 
