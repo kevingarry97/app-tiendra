@@ -1,8 +1,8 @@
 <section class="m-md-5 mx-2 my-4">
-  <div class="row">
-    <div class="col-lg-7">
-      <h1 class="text-danger font-weight-bold my-4"> Upload Product</h1>
-      <form [formGroup]="form" (ngSubmit)="saveProduct()">
+  <h1 class="text-danger font-weight-bold my-4"> Upload Product</h1>
+  <form [formGroup]="form" (ngSubmit)="saveProduct()">
+    <div class="row">
+      <div class="col-md-6">
         <div class="form-group">
           <input
             formControlName="productName"
@@ -89,6 +89,8 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="col-md-6">
         <div class="form-group">
           <textarea
             rows="3"
@@ -188,20 +190,20 @@
         <button class="btn btn-danger btn-block" [disabled]="!form.valid" data-target="#collapseExample" data-toggle="collapse">
           Uploads
         </button>
-      </form>
-      <div class="collapse shadow mt-4 p-4" id="collapseExample">
-        <form [formGroup]="imageForm" (ngSubmit)="onSave()">
-          <div class="form-group mb-4">
-            <input type="file" (change)="onSelect($event)" multiple>
-            <div class="row">
-              <div class="col-md-3 m-2" *ngFor='let url of urls'>
-                <img [src]="url" class="img-fluid">
-              </div>
-            </div>
-          </div>
-          <button class="btn btn-danger btn-block"> Save product</button>
-        </form>
       </div>
     </div>
+  </form>
+  <div class="collapse shadow mt-4 p-4" id="collapseExample">
+    <form [formGroup]="imageForm" (ngSubmit)="onSave()">
+      <div class="form-group mb-4">
+        <input type="file" (change)="onSelect($event)" multiple>
+        <div class="row">
+          <div class="col-md-3 m-2" *ngFor='let url of urls'>
+            <img [src]="url" class="img-fluid">
+          </div>
+        </div>
+      </div>
+      <button class="btn btn-danger btn-block"> Save product</button>
+    </form>
   </div>
 </section>
