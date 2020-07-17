@@ -21,18 +21,31 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">3</th>
-              <td>24/06/13</td>
+            <tr *ngFor="let o of orders">
+              <th scope="row">
+                {{ o._id }}
+              </th>
+              <td>
+                {{ o.date | date}}
+              </td>
               <td>
                 <div class="d-inline p-2">
                   <span class="p-1 rounded" style="background-color: #f1f1fd;">
-                    Damon
+                    {{ o.firstName}}
+                  </span>
+                </div>
+                <div class="d-inline p-2">
+                  <span class="p-1 rounded" style="background-color: #f1f1fd;">
+                    {{ o.lastName}}
                   </span>
                 </div>
               </td>
-              <td>$5000</td>
-              <td>10</td>
+              <td>
+                {{ o.cart.totalPrice }}
+              </td>
+              <td>
+                {{ o.cart.totalPrice * 18 / 100 }}
+              </td>
               <td>3</td>
               <td>
                 <div class="d-inline p-2">
