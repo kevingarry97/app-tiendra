@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../shared/product.service';
+import { OrdersService } from '../shared/orders.service';
 
 @Component({
   selector: 'app-orders',
@@ -7,10 +7,15 @@ import { ProductService } from '../shared/product.service';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-  constructor(private productService: ProductService) { }
+  orders: [];
+  constructor(private orderService: OrdersService) { }
 
   ngOnInit(): void {
-
+    this.orderService.getOrders()
+      .subscribe((data: any) => {
+        this.orders = data;
+        console.log(this.orders)
+      })
   }
 
 }
