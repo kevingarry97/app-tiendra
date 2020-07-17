@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { OrdersService } from '../shared/orders.service';
 
@@ -8,12 +9,13 @@ import { OrdersService } from '../shared/orders.service';
 })
 export class OrdersComponent implements OnInit {
   orders: [];
-  constructor(private orderService: OrdersService) { }
+  constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.orderService.getOrders()
+    this.http.get('https://server-tienda.herokuapp.com/api/orders')
       .subscribe((data: any) => {
-        this.orders = data
+        this.orders = data;
+        console.log(data)
       })
   }
 
