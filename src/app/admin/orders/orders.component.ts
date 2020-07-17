@@ -7,15 +7,10 @@ import { ProductService } from '../shared/product.service';
   styleUrls: ['./orders.component.css']
 })
 export class OrdersComponent implements OnInit {
-  discount = [];
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.productService.getDiscount()
-      .subscribe((data: any) => {
-        this.discount = data;
-        console.log(this.discount);
-      })
+
   }
 
 }

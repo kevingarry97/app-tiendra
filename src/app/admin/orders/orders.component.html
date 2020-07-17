@@ -2,7 +2,7 @@
   <div class="card shadow border-0">
     <div class="card-header bg-white">
       <div class="clearfix">
-        <h3 class="font-weight-bold">Latest Order</h3>
+        <h5>Latest Order</h5>
       </div>
     </div>
     <div class="card-body">
@@ -10,37 +10,50 @@
         <table class="table">
           <thead class="thead-light">
             <tr>
-              <th scope="col">Images</th>
-              <th scope="col">Title</th>
-              <th scope="col">Tag</th>
-              <th scope="col">Owner</th>
-              <th scope="col">Amount</th>
-              <th scope="col">Percentage</th>
-              <th scope="col">New Amount</th>
+              <th scope="col">#</th>
+              <th scope="col">Purchase Date</th>
+              <th scope="col">Customer</th>
+              <th scope="col">Grand Total</th>
+              <th scope="col">Tax</th>
+              <th scope="col">Shipping</th>
+              <th scope="col">Status</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let d of discount">
-              <th scope="row">
-                <img [src]="d.product.image[0]" style="height: 5vh;" alt="">
-              </th>
+            <tr>
+              <th scope="row">3</th>
+              <td>24/06/13</td>
               <td>
-                {{ d.product.product.productName }}
+                <div class="d-inline p-2">
+                  <span class="p-1 rounded" style="background-color: #f1f1fd;">
+                    Damon
+                  </span>
+                </div>
+              </td>
+              <td>$5000</td>
+              <td>10</td>
+              <td>3</td>
+              <td>
+                <div class="d-inline p-2">
+                  <span class="p-1 rounded" style="background-color: #f1f1fd;">
+                    Complete
+                  </span>
+                </div>
               </td>
               <td>
-                {{ d.product.product.tag }}
-              </td>
-              <td>
-                {{ d.product.product.owner }}
-              </td>
-              <td>
-                {{ d.product.product.amount }}
-              </td>
-              <td>
-                {{ d.percentage }}
-              </td>
-              <td>
-                {{ d.newAmount }}
+                <div class="d-inline p-2">
+                  <span class="p-1 rounded" style="background-color: #f1f1fd;">
+                    <i class="fa fa-pencil-square-o mr-1"></i>
+                    View
+                  </span>
+                </div>
+                <div class="d-inline p-2">
+                  <span class="p-1 rounded" style="background-color: #f1f1fd;">
+                    <i class="fa fa-trash-o mr-1"></i>
+                    Remove
+                  </span>
+                </div>
               </td>
             </tr>
           </tbody>

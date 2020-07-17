@@ -25,7 +25,6 @@ export class SingleProductComponent implements OnInit, AfterViewInit {
     this.productService.getSingleProduct(this.id)
       .subscribe((data: any) => {
         this.product = data;
-        console.log(this.product)
       })
   }
 

@@ -119,10 +119,64 @@
                   <td>
                     <div class="d-inline p-2" [routerLink]="['/admin/dashboard/', p._id]">
                       <span class="p-1 rounded" style="background-color: #f1f1fd;">
-                        <i class="fa fa-pencil-square-o mr-1"></i>
+                        <i class="fa fa-pencil-square-o"></i>
                         Edit
                       </span>
                     </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-7">
+      <div class="card shadow border-0">
+        <div class="card-header bg-white">
+          <div class="clearfix">
+            <h3 class="font-weight-bold">Latest Order</h3>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Images</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Tag</th>
+                  <th scope="col">Owner</th>
+                  <th scope="col">Amount</th>
+                  <th scope="col">Percentage</th>
+                  <th scope="col">New Amount</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let d of discount">
+                  <th scope="row">
+                    <img [src]="d.product.image[0]" style="height: 5vh;" alt="">
+                  </th>
+                  <td>
+                    {{ d.product.product.productName }}
+                  </td>
+                  <td>
+                    {{ d.product.product.tag }}
+                  </td>
+                  <td>
+                    {{ d.product.product.owner }}
+                  </td>
+                  <td>
+                    {{ d.product.product.amount }}
+                  </td>
+                  <td>
+                    {{ d.percentage }}
+                  </td>
+                  <td>
+                    {{ d.newAmount }}
                   </td>
                 </tr>
               </tbody>
