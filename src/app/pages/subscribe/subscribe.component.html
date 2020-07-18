@@ -6,10 +6,6 @@
           <p>Sign Up for the <strong>NEWSLETTER</strong></p>
           <form [formGroup]="form" (ngSubmit)="addEmail()">
             <input class="input" type="email" placeholder="Enter Your Email" formControlName="email">
-            <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
-              <div *ngIf="email.errors.required"> The field is required! </div>
-              <div *ngIf="email.errors.email"> Provide a valid email </div>
-            </div>
             <button class="newsletter-btn" [disabled]="!form.valid">
               <i class="fa fa-envelope"></i>
             </button>
