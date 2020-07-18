@@ -28,6 +28,7 @@ export class SubscribeComponent implements OnInit {
       .subscribe(data => {
         console.log(data)
       })
+    this.form.value = '';
   }
 
 }
