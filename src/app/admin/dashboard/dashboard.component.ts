@@ -20,7 +20,6 @@ export class DashboardComponent implements OnInit {
     this.productService.getDiscount()
     .subscribe((data: any) => {
       this.discount = data;
-      console.log(this.discount);
     })
   }
 

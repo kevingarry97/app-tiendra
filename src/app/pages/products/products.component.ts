@@ -40,7 +40,6 @@ export class ProductsComponent implements OnInit {
           .filter(p => p.product.category.name === this.category && p.product.subCategory.name === this.subCategory) :
           this.products
       })
-    console.log(this.filteredProducts)
   }
 
   filterOpen() {
