@@ -7,4 +7,8 @@ import { Injectable } from '@angular/core';
 export class OrdersService {
 
   constructor(private http: HttpClient) { }
+
+  getOrders() {
+    return this.http.get('https://server-tienda.herokuapp.com/api/orders')
+  }
 }

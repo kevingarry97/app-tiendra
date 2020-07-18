@@ -25,7 +25,6 @@ export class DashboardComponent implements OnInit {
     this.mailService.getMails()
       .subscribe((data: any) => {
         this.mails = data;
-        console.log(this.mails)
       })
 
     this.productService.getDiscount()
