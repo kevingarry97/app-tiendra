@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MailService } from '../shared/mail.service';
+import { OrdersService } from '../shared/orders.service';
 import { ProductService } from '../shared/product.service';
 
 @Component({
@@ -10,13 +11,20 @@ import { ProductService } from '../shared/product.service';
 export class DashboardComponent implements OnInit {
   product = [];
   discount = [];
-  mails: [];
+  mails = [];
+  orders = [];
   constructor(
     private mailService: MailService,
-    private productService: ProductService
+    private productService: ProductService,
+    private orderService: OrdersService
   ) { }
 
   ngOnInit(): void {
+    this.orderService.getOrders()
+      .subscribe((data: any) => {
+        this.orders = data;
+      })
+
     this.productService.getProduct()
     .subscribe((data: any) => {
       this.product = data;

@@ -23,7 +23,6 @@ export class ViewProductComponent implements OnInit {
     this.productService.getOne(this.id)
       .subscribe(data => {
         this.product = data;
-        console.log(this.product)
       })
   }
 
