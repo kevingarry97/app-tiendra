@@ -45,7 +45,7 @@
             class="form-control"
             placeholder="Size*"
             #size
-            (keyup.enter)="addSize(size)"
+            (keyup.;)="addSize(size)"
           >
           <div class="alert alert-danger" *ngIf="sizes.invalid && sizes.touched">
             This field is required
@@ -136,20 +136,30 @@
             </div>
           </div>
         </div>
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Owner" formControlName="owner">
-          <div class="alert alert-danger" *ngIf="owner.invalid && owner.touched">
-            Field is required!
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Owner" formControlName="owner">
+            <div class="alert alert-danger" *ngIf="owner.invalid && owner.touched">
+              Field is required!
+            </div>
           </div>
-        </div>
-        <div class="form-group mb-4">
-          <input
-            type="text"
-            class="form-control"
-            placeholder="Details*"
-            #detail
-            (keyup.enter)="addDetails(detail)"
-          >
+          <div class="row">
+            <div class="col-md-8">
+              <div class="form-group mb-4">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Details*"
+                  #detail
+                  (keyup.enter)="addDetails(detail)"
+                >
+              </div>
+            </div>
+            <div class="col-md-4">
+              <button class="btn btn-danger">
+                <i class="fa fa-plus"></i>
+              </button>
+            </div>
+          </div>
           <ul class="list-group">
             <li
               style="cursor: pointer;"
@@ -160,7 +170,6 @@
               {{ d.value }}
             </li>
           </ul>
-        </div>
         <div class="form-group mb-4">
           <textarea
             rows="5"
