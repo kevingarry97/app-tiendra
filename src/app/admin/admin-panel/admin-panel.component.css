@@ -103,4 +103,8 @@
 .card-body {
   padding: 0 2em;
 }
+ol li a {
+  color: #fff;
+  text-decoration: none;
+}
 
