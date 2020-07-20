@@ -145,12 +145,36 @@
     </div>
   </div>
   <div class="row my-4">
-    <div class="col-md-5"></div>
+    <div class="col-md-5">
+      <div class="col-12">
+        <div class="card shadow border-0">
+          <div class="card-header bg-white">
+            <h3 class="font-weight-bold">Categories</h3>
+            <div class="table-responsive">
+              <table class="table">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let c of category">
+                    <th scope="row">
+                      {{ c.name }}
+                    </th>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="col-md-7">
       <div class="card shadow border-0">
         <div class="card-header bg-white">
           <div class="clearfix">
-            <h3 class="font-weight-bold">Latest Order</h3>
+            <h3 class="font-weight-bold">Products on Dsicounts</h3>
           </div>
         </div>
         <div class="card-body">
