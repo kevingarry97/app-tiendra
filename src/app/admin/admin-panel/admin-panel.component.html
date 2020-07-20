@@ -5,7 +5,7 @@
     [opened]="(isHandset$ | async) === false">
     <div class="container mt-5">
       <div class="clearfix pl-3">
-        <a routerLink="/admin/" class="float-left">
+        <a class="float-left">
           <h4 class="font-weight-bold mt-1">LOGO</h4>
         </a>
         <span class="float-right mt-1">
@@ -17,6 +17,16 @@
       <hr class="mt-0">
     </div>
     <div class="accordion" id="accordionExample" *ngIf="authService.currentUser.isAdmin">
+      <div class="card my-3">
+        <div class="clearfix px-3" routerLink="/admin/">
+          <div class="media">
+            <i class="fa fa-th-list font-weight-bold text-muted"></i>
+            <div class="media-body">
+              <h4 class="font-weight-bold text-muted pl-2">Orders</h4>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="card my-3">
         <div id="headingOne">
           <div class="clearfix px-3" data-toggle="collapse" data-target="#Product">
