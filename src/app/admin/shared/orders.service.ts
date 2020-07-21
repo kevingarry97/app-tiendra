@@ -11,4 +11,12 @@ export class OrdersService {
   getOrders() {
     return this.http.get('https://server-tienda.herokuapp.com/api/orders')
   }
+
+  getOneOrder(id: string) {
+    return this.http.get('https://server-tienda.herokuapp.com/api/orders/' + id)
+  }
+
+  approve(id: string) {
+    return this.http.get('https://server-tienda.herokuapp.com/api/orders/' + id)
+  }
 }

@@ -21,9 +21,7 @@ export class ProductsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private productService: ProductsService
-  ) {
-
-  }
+  ) {}
 
   ngOnInit(): void {
     this.productService.getProduct()

@@ -31,6 +31,7 @@ import { NoAccessComponent } from './pages/no-access/no-access.component';
 import { ProductCardComponent } from './pages/product-card/product-card.component';
 import { ViewProductComponent } from './admin/view-product/view-product.component';
 import { OrdersComponent } from './admin/orders/orders.component';
+import { ApprovalComponent } from './admin/approval/approval.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { OrdersComponent } from './admin/orders/orders.component';
     NoAccessComponent,
     ProductCardComponent,
     ViewProductComponent,
-    OrdersComponent
+    OrdersComponent,
+    ApprovalComponent
   ],
   imports: [
     BrowserModule,

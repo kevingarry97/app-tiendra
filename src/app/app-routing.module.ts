@@ -14,6 +14,7 @@ import { AuthGuard } from './pages/shared/auth-guard.service';
 import { NoAccessComponent } from './pages/no-access/no-access.component';
 import { ViewProductComponent } from './admin/view-product/view-product.component';
 import { OrdersComponent } from './admin/orders/orders.component';
+import { ApprovalComponent } from './admin/approval/approval.component';
 
 
 const routes: Routes = [
@@ -35,7 +36,8 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'add-product', component: AddProductComponent },
       { path: 'dashboard/:id', component: ViewProductComponent },
-      { path: 'orders', component: OrdersComponent }
+      { path: 'orders', component: OrdersComponent },
+      { path: 'orders/approval/:id', component: ApprovalComponent }
     ], canActivate: [ AuthGuard ]
   },
 

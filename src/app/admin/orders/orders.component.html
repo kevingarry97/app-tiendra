@@ -50,13 +50,15 @@
               <td>
                 <div class="d-inline p-2">
                   <span class="p-1 rounded" style="background-color: #f1f1fd;">
-                    Pending
+                    {{ o.status }}
                   </span>
                 </div>
               </td>
               <td>
                 <div class="d-inline p-2">
-                  <button class="btn btn-danger btn-sm">
+                  <button
+                    class="btn btn-danger btn-sm"
+                    [routerLink]="['approval', o._id]">
                     <i class="fa fa-pencil-square-o mr-1"></i>
                     Approve
                   </button>
