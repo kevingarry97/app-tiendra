@@ -9,4 +9,9 @@
 .dropdown-menu {
   width: 100%;
   padding: 3px 10px;
+  border: 2px solid #e28101;
+  border-top: 0;
+}
+li .nav-link {
+  color: #444;
 }

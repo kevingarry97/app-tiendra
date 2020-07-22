@@ -14,7 +14,7 @@
             <p
               class="rounded-pill float-right px-3 py-1 font-weight-bold"
               style="font-size: 15px; background-color: #effff6; color: #00ff9d;">
-              {{ product.length }}
+              {{ filteredProducts.length }}
             </p>
           </div>
         </div>
@@ -83,7 +83,10 @@
       <div class="card shadow border-0">
         <div class="card-header bg-white">
           <div class="clearfix">
-            <h3 class="font-weight-bold">Available products</h3>
+            <h3 class="font-weight-bold float-left mt-1">Products</h3>
+            <div class="form-group float-right mt-1">
+              <input type="text" class="form-control" placeholder="Search..." #query (keyup)="filter(query.value)">
+            </div>
           </div>
         </div>
         <div class="card-body">
@@ -100,7 +103,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let p of product">
+                <tr *ngFor="let p of filteredProducts">
                   <th scope="row">
                     <img [src]="p.image[0]" style="height: 5vh;" alt="">
                   </th>

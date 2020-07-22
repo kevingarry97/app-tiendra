@@ -1,14 +1,16 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { ProductsService } from '../shared/products.service';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit {
+export class ProductsComponent implements OnInit, OnDestroy {
 
   @ViewChild('myOverlay', { static: true }) myOverlay: ElementRef;
   @ViewChild('filter', { static: true }) filter: ElementRef;
@@ -17,6 +19,11 @@ export class ProductsComponent implements OnInit {
   filteredProducts = [];
   category: string;
   subCategory: string;
+  totalPosts = 10;
+  postsPerPage = 2;
+  currentPage = 1;
+  pageSizeOptions = [1, 2, 5, 10];
+  private postsSub: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +31,8 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.productService.getProduct()
+    this.productService.getProduct(this.postsPerPage, this.currentPage);
+    this.postsSub = this.productService.getPostUpdateListener()
       .pipe(switchMap((data: any) => {
         this.products = data;
         return this.route.queryParamMap;
@@ -38,6 +46,12 @@ export class ProductsComponent implements OnInit {
           .filter(p => p.product.category.name === this.category && p.product.subCategory.name === this.subCategory) :
           this.products
       })
+  }
+
+  onChangedPage(pageData: PageEvent) {
+    this.currentPage = pageData.pageIndex + 1;
+    this.postsPerPage = pageData.pageSize;
+    this.productService.getProduct(this.postsPerPage, this.currentPage)
   }
 
   filterOpen() {
@@ -54,6 +68,10 @@ export class ProductsComponent implements OnInit {
   filterClose() {
     this.filter.nativeElement.style.display = 'none';
     this.myOverlay.nativeElement.style.display = 'none';
+  }
+
+  ngOnDestroy() {
+    this.postsSub.unsubscribe();
   }
 
 }

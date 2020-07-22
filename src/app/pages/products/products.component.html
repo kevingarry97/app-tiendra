@@ -44,7 +44,7 @@
         </div>
       </div>
       <div class="categories px-4">
-        <h2 class="font-weight-bold mt-3 mb-5" style="letter-spacing: .01em;"> Categories </h2>
+        <h2 class="font-weight-bold mt-3" style="letter-spacing: .01em;"> Categories </h2>
         <app-filter></app-filter>
       </div>
     </div>
@@ -68,6 +68,13 @@
             <app-product-card [product]="p"></app-product-card>
           </div>
         </div>
+        <mat-paginator
+          [length]="totalPosts"
+          [pageSize]="postsPerPage"
+          [pageSizeOptions]="pageSizeOptions"
+          (page)="onChangedPage($event)"
+          *ngIf="filteredProducts.length > 0"
+        ></mat-paginator>
       </div>
     </div>
   </div>

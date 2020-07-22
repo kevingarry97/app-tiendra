@@ -3,8 +3,8 @@
     {{ c.name }}
   </button>
   <ul class="dropdown-menu">
-    <li *ngFor="let s of subs">
-      <a routerLink="/home" [queryParams]="{ cat: s.category.name, sub: s.name }">{{ s.name }}</a>
+    <li class="nav-item" *ngFor="let s of subs">
+      <a class="nav-link" routerLink="/home" [queryParams]="{ cat: s.category.name, sub: s.name }">{{ s.name }}</a>
     </li>
   </ul>
 </div>

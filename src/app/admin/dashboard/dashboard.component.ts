@@ -15,6 +15,7 @@ export class DashboardComponent implements OnInit {
   mails = [];
   orders = [];
   category = [];
+  filteredProducts: any[] = [];
   sub = [];
   constructor(
     private mailService: MailService,
@@ -30,9 +31,7 @@ export class DashboardComponent implements OnInit {
       })
 
     this.productService.getProduct()
-      .subscribe((data: any) => {
-      this.product = data;
-    })
+      .subscribe((data: any) => this.filteredProducts = this.product = data)
 
     this.mailService.getMails()
       .subscribe((data: any) => {
@@ -55,4 +54,9 @@ export class DashboardComponent implements OnInit {
       })
   }
 
+  filter(query: string) {
+    this.filteredProducts = (query) ?
+      this.product.filter(p => p.product.productName.toLowerCase().includes(query.toLocaleLowerCase()))
+      : this.product;
+  }
 }
