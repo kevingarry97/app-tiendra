@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { OrdersService } from '../shared/orders.service';
 
 @Component({
@@ -12,7 +12,8 @@ export class ApprovalComponent implements OnInit {
   orders;
   constructor(
     private orderService: OrdersService,
-    route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.id = route.snapshot.paramMap.get('id')
   }
@@ -26,7 +27,10 @@ export class ApprovalComponent implements OnInit {
 
   Approve() {
     this.orderService.approve(this.id)
-      .subscribe()
+      .subscribe(data => {
+        console.log(data)
+      })
+    this.router.navigate(['admin/dashboard'])
   }
 
 }

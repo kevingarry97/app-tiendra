@@ -17,6 +17,6 @@ export class OrdersService {
   }
 
   approve(id: string) {
-    return this.http.get('https://server-tienda.herokuapp.com/api/orders/' + id)
+    return this.http.get('https://server-tienda.herokuapp.com/api/approve/' + id)
   }
 }
