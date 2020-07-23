@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +33,7 @@ import { ViewProductComponent } from './admin/view-product/view-product.componen
 import { OrdersComponent } from './admin/orders/orders.component';
 import { ApprovalComponent } from './admin/approval/approval.component';
 import { BarChartComponent } from './admin/bar-chart/bar-chart.component';
+import { AppInterceptorService } from './app-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -73,7 +74,13 @@ import { BarChartComponent } from './admin/bar-chart/bar-chart.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AppInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
