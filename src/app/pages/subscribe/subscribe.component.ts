@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+
+const BACKEND_URL = environment.apiUrl;
 
 @Component({
   selector: 'app-subscribe',
@@ -24,7 +27,7 @@ export class SubscribeComponent implements OnInit {
   }
 
   addEmail() {
-    this.http.post('https://server-tienda.herokuapp.com/api/mails', this.form.value)
+    this.http.post(BACKEND_URL + 'mails', this.form.value)
       .subscribe(data => {
         console.log(data)
       })

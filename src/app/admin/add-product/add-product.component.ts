@@ -4,6 +4,9 @@ import { CategoryService } from '../shared/category.service';
 import { ProductService } from '../shared/product.service';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+
+const BACKEND_URL = environment.apiUrl;
 
 @Component({
   selector: 'app-add-product',
@@ -117,7 +120,7 @@ export class AddProductComponent implements OnInit {
     }
     formData.append('productId', this.relateId)
 
-      this.http.post('https://server-tienda.herokuapp.com/api/upload-images', formData)
+      this.http.post(BACKEND_URL + 'upload-images', formData)
       .subscribe(data => {
         console.log(data)
       })

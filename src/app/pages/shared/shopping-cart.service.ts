@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+const BACKEND_URL = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +14,7 @@ export class ShoppingCartService {
   constructor(private http: HttpClient) {}
 
   createCart(product) {
-    return this.http.get('https://server-tienda.herokuapp.com/api/add-to-cart/' + product._id, {
+    return this.http.get(BACKEND_URL + 'add-to-cart/' + product._id, {
       withCredentials: true // ========> Important
     }).subscribe((data: any) => {
       this.cartStore.next(data)
@@ -19,7 +22,7 @@ export class ShoppingCartService {
   }
 
   createOrder(order) {
-    return this.http.post('https://server-tienda.herokuapp.com/api/checkout', order, {
+    return this.http.post(BACKEND_URL + 'checkout', order, {
       withCredentials: true
     }).subscribe((data: any) => {
       this.cartStore.next(data);
@@ -27,7 +30,7 @@ export class ShoppingCartService {
   }
 
   getCart() {
-    return this.http.get('https://server-tienda.herokuapp.com/api/shopping-cart', {
+    return this.http.get(BACKEND_URL + 'shopping-cart', {
       withCredentials: true
     }).subscribe((data: any) => {
       this.cartStore.next(data)
@@ -35,7 +38,7 @@ export class ShoppingCartService {
   }
 
   removeItem(product) {
-    return this.http.get('https://server-tienda.herokuapp.com/api/remove/' + product, {
+    return this.http.get(BACKEND_URL + 'remove/' + product, {
       withCredentials: true
     })
       .subscribe(data => {

@@ -5,7 +5,6 @@ import { map, shareReplay } from 'rxjs/operators';
 import { CategoryService } from '../shared/category.service';
 import { Category } from '../shared/modules/category';
 import { FormBuilder, Validators } from '@angular/forms';
-import { SubCategories } from '../shared/modules/sub-category';
 import { AuthService } from 'src/app/pages/shared/auth.service';
 
 @Component({

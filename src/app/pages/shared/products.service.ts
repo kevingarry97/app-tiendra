@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
+
+const BACKEND_URL = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,7 @@ export class ProductsService {
 
   getProduct(postsPerPage: number, currentPage: number) {
     const queryParams = `?pagesize=${postsPerPage}&page=${currentPage}`;
-    return this.http.get('https://server-tienda.herokuapp.com/api/products' + queryParams)
+    return this.http.get(BACKEND_URL + 'products' + queryParams)
       .subscribe((data: any) => {
         this.postsUpdated.next([...data])
       })
@@ -23,6 +26,6 @@ export class ProductsService {
   }
 
   getSingleProduct(id) {
-    return this.http.get(`https://server-tienda.herokuapp.com/api/product/${id}`);
+    return this.http.get(`${BACKEND_URL}product/${id}`);
   }
 }

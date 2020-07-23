@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from '../shared/category.service';
 import { MailService } from '../shared/mail.service';
 import { OrdersService } from '../shared/orders.service';
 import { ProductService } from '../shared/product.service';
@@ -14,14 +13,12 @@ export class DashboardComponent implements OnInit {
   discount = [];
   mails = [];
   orders = [];
-  category = [];
   filteredProducts: any[] = [];
-  sub = [];
+
   constructor(
     private mailService: MailService,
     private productService: ProductService,
-    private orderService: OrdersService,
-    private categories: CategoryService,
+    private orderService: OrdersService
   ) { }
 
   ngOnInit(): void {
@@ -42,16 +39,6 @@ export class DashboardComponent implements OnInit {
       .subscribe((data: any) => {
       this.discount = data;
     })
-
-    this.categories.getCategory()
-      .subscribe((data: any) => {
-        this.category = data;
-      })
-
-    this.categories.getSubs()
-      .subscribe((data: any) => {
-        this.sub = data;
-      })
   }
 
   filter(query: string) {

@@ -4,6 +4,9 @@ import { Auth } from './model/auth';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { environment } from 'src/environments/environment';
+
+const BACKEND_URL = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +20,7 @@ export class AuthService {
   ) { }
 
   login(credentials: Auth) {
-    return this.http.post('https://server-tienda.herokuapp.com/api/auth', credentials)
+    return this.http.post(BACKEND_URL + 'auth', credentials)
       .pipe(map(response => {
         let result = response;
         if (result && result['token']) {
