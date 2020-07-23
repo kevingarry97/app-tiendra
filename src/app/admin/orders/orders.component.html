@@ -21,7 +21,14 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let o of orders">
+            <tr
+              *ngFor="let o of orders"
+              [class.pending]="o.status == 'Pending'"
+              [ngClass]="{
+                'pending': o.status == 'Pending',
+                'completed': o.status == 'Confirmed'
+              }"
+            >
               <th scope="row">
                 {{ o.textId }}
               </th>
@@ -29,16 +36,9 @@
                 {{ o.date | date}}
               </td>
               <td>
-                <div class="d-inline p-2">
-                  <span class="p-1 rounded" style="background-color: #f1f1fd;">
-                    {{ o.firstName}}
-                  </span>
-                </div>
-                <div class="d-inline p-2">
-                  <span class="p-1 rounded" style="background-color: #f1f1fd;">
-                    {{ o.lastName}}
-                  </span>
-                </div>
+                <span class="p-1 rounded" style="background-color: #f1f1fd;">
+                  {{ o.firstName}} {{o.lastName}}
+                </span>
               </td>
               <td>
                 {{ o.cart.totalPrice }}
@@ -55,7 +55,7 @@
                 </div>
               </td>
               <td>
-                <div class="d-inline p-2">
+                <div *ngIf="o.status == 'Pending'; else completed">
                   <button
                     class="btn btn-danger btn-sm"
                     [routerLink]="['approval', o._id]">
@@ -63,6 +63,12 @@
                     Approve
                   </button>
                 </div>
+                <ng-template #completed>
+                  <span class="text-danger">
+                    <i class="fa fa-check"></i>
+                    Approved
+                  </span>
+                </ng-template>
               </td>
             </tr>
           </tbody>

@@ -1,5 +1,10 @@
-tr th, tr td {
-  font-size: 13px !important;
+.completed {
+  font-size: 14px !important;
   font-weight: 400;
+  color: #57599c !important;
+}
+.pending {
+  font-size: 15px !important;
+  font-weight: 900;
   color: #57599c !important;
 }
