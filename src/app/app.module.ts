@@ -32,6 +32,7 @@ import { ProductCardComponent } from './pages/product-card/product-card.componen
 import { ViewProductComponent } from './admin/view-product/view-product.component';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { ApprovalComponent } from './admin/approval/approval.component';
+import { BarChartComponent } from './admin/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { ApprovalComponent } from './admin/approval/approval.component';
     ProductCardComponent,
     ViewProductComponent,
     OrdersComponent,
-    ApprovalComponent
+    ApprovalComponent,
+    BarChartComponent
   ],
   imports: [
     BrowserModule,
