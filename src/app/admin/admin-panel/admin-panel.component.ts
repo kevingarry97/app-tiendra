@@ -6,6 +6,7 @@ import { CategoryService } from '../shared/category.service';
 import { Category } from '../shared/modules/category';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/pages/shared/auth.service';
+import { OrdersService } from '../shared/orders.service';
 
 @Component({
   selector: 'app-admin-panel',
@@ -13,6 +14,7 @@ import { AuthService } from 'src/app/pages/shared/auth.service';
   styleUrls: ['./admin-panel.component.css']
 })
 export class AdminPanelComponent implements OnInit {
+  read: number;
   form;
   categories: Category[] = [];
   errorMsg;
@@ -26,6 +28,7 @@ export class AdminPanelComponent implements OnInit {
     private breakpointObserver: BreakpointObserver,
     public authService: AuthService,
     private catService: CategoryService,
+    private orderService: OrdersService,
     fb: FormBuilder
   ) {
     this.form = fb.group({
@@ -42,6 +45,15 @@ export class AdminPanelComponent implements OnInit {
     this.catService.getCategory()
       .subscribe((data: Category[]) => {
         this.categories = data;
+      })
+
+      this.orderService.getOrders()
+      .subscribe((data: any) => {
+        this.read = 0
+        for (const item of data) {
+          if(item['status'] === 'Pending')
+            this.read++;
+        }
       })
   }
 

@@ -108,3 +108,13 @@ ol li a {
   text-decoration: none;
 }
 
+.badge-primary {
+  background-color: #e28101;
+  font-weight: bold;
+}
+.badge-pill {
+  padding-right: 1em;
+  padding-left: 1em;
+  border-radius: 50%;
+}
+
