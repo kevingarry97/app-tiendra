@@ -115,7 +115,7 @@ i {
   .sideOut, .collapse{
     display:  block!important;
     border-bottom-left-radius: 2em;
-    min-height: 45vh;
+    min-height: 50vh;
     margin-top: -.10rem !important;
   }
   .cards {

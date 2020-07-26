@@ -27,9 +27,6 @@ export class ApprovalComponent implements OnInit {
 
   Approve() {
     this.orderService.approve(this.id)
-      .subscribe(data => {
-        console.log(data)
-      })
     this.router.navigate(['admin/dashboard'])
   }
 
