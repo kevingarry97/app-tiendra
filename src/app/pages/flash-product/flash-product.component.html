@@ -3,26 +3,36 @@
     <div class="row">
       <div class="col-12">
         <div class="media mt-lg-0 mt-4">
-          <h5 class="font-weight-bold"> FLASH PRODUCTS </h5>
+          <h5 class="font-weight-bold">FLASH PRODUCTS</h5>
           <div class="media-body pl-2">
-          <hr>
+            <hr />
           </div>
         </div>
         <div class="card containee px-2">
           <div class="row">
-            <div class="col-lg-2 col-md-4 col-6 my-3" *ngFor="let d of discounts">
-              <div class="card" routerLink="/product">
-                <img [src]="d.product.image[0]" class="card-img-top" alt="...">
-                <div class="box">
-                  {{ d.percentage }}%
-                </div>
+            <div
+              class="col-lg-2 col-md-4 col-6 my-3"
+              *ngFor="let d of discounts"
+            >
+              <div class="card" [routerLink]="['/discount/', d._id]">
+                <img
+                  [src]="d.product.image[0]"
+                  class="card-img-top"
+                  alt="..."
+                />
+                <div class="box">{{ d.percentage }}%</div>
                 <p>{{ d.product.product.productName }}</p>
                 <div class="clearfix">
-                  <p class="font-weight-bold text-muted pt-2 float-left" style="font-size: 12px;">
-                    <del> {{ d.product.product.amount | currency: 'RWF' }} </del>
+                  <p
+                    class="font-weight-bold text-muted pt-2 float-left"
+                    style="font-size: 12px;"
+                  >
+                    <del>
+                      {{ d.product.product.amount | currency: "RWF" }}
+                    </del>
                   </p>
                   <p class="font-weight-bold text-danger pt-2 float-right">
-                    {{ d.newAmount | currency: 'RWF' }}
+                    {{ d.newAmount | currency: "RWF" }}
                   </p>
                 </div>
               </div>

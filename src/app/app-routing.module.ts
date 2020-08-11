@@ -15,12 +15,13 @@ import { NoAccessComponent } from './pages/no-access/no-access.component';
 import { ViewProductComponent } from './admin/view-product/view-product.component';
 import { OrdersComponent } from './admin/orders/orders.component';
 import { ApprovalComponent } from './admin/approval/approval.component';
-
+import { SingleDiscountComponent } from './pages/single-discount/single-discount.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'product/:id', component: SingleProductComponent },
+  { path: 'discount/:id', component: SingleDiscountComponent },
   { path: 'reviews', component: ReviewsComponent },
   { path: 'shopping-cart', component: ShoppingComponent },
   { path: 'checkout', component: CheckoutComponent },
@@ -37,15 +38,16 @@ const routes: Routes = [
       { path: 'add-product', component: AddProductComponent },
       { path: 'dashboard/:id', component: ViewProductComponent },
       { path: 'orders', component: OrdersComponent },
-      { path: 'orders/approval/:id', component: ApprovalComponent }
-    ], canActivate: [ AuthGuard ]
+      { path: 'orders/approval/:id', component: ApprovalComponent },
+    ],
+    canActivate: [AuthGuard],
   },
 
-  { path: 'no-access', component: NoAccessComponent }
+  { path: 'no-access', component: NoAccessComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

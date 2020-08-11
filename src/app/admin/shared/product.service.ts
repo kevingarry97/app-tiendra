@@ -6,31 +6,32 @@ import { environment } from 'src/environments/environment';
 const BACKEND_URL = environment.apiUrl;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   addProduct(product: Product) {
-    return this.http.post(BACKEND_URL + 'product', product)
+    return this.http.post(BACKEND_URL + 'product', product);
   }
 
   getProduct() {
-    return this.http.get(BACKEND_URL + 'products')
+    return this.http.get(BACKEND_URL + 'products');
   }
 
   getOne(id) {
-    return this.http.get(`${BACKEND_URL}product/${id}`)
+    return this.http.get(`${BACKEND_URL}product/${id}`);
   }
 
   addToDiscount(id: number, percentage) {
-    return this.http.post(BACKEND_URL + 'discount', {id, percentage})
-      .subscribe(data => {
+    return this.http
+      .post(BACKEND_URL + 'discount', { id, percentage })
+      .subscribe((data) => {
         console.log(data);
-      })
+      });
   }
 
   getDiscount() {
-    return this.http.get('https://server-tienda.herokuapp.com/api/discount')
+    return this.http.get(`${BACKEND_URL}discount`);
   }
 }

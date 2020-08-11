@@ -6,14 +6,13 @@ import { ShoppingCartService } from '../shared/shopping-cart.service';
 declare let $: any;
 
 @Component({
-  selector: 'app-single-product',
-  templateUrl: './single-product.component.html',
-  styleUrls: ['./single-product.component.css'],
+  selector: 'app-single-discount',
+  templateUrl: './single-discount.component.html',
+  styleUrls: ['./single-discount.component.css'],
 })
-export class SingleProductComponent implements OnInit, AfterViewInit {
+export class SingleDiscountComponent implements OnInit, AfterViewInit {
   id: string;
-  product;
-
+  discount;
   constructor(
     private route: ActivatedRoute,
     private productService: ProductsService,
@@ -22,13 +21,13 @@ export class SingleProductComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.productService.getSingleProduct(this.id).subscribe((data: any) => {
-      this.product = data;
+    this.productService.getSingleDiscount(this.id).subscribe((data: any) => {
+      this.discount = data;
     });
   }
 
-  addToCart(product) {
-    this.cartService.createCart(product);
+  addToCart(discount) {
+    this.cartService.createCart(discount);
   }
 
   ngAfterViewInit() {

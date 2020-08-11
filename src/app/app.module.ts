@@ -34,6 +34,7 @@ import { OrdersComponent } from './admin/orders/orders.component';
 import { ApprovalComponent } from './admin/approval/approval.component';
 import { BarChartComponent } from './admin/bar-chart/bar-chart.component';
 import { AppInterceptorService } from './app-interceptor.service';
+import { SingleDiscountComponent } from './pages/single-discount/single-discount.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { AppInterceptorService } from './app-interceptor.service';
     ViewProductComponent,
     OrdersComponent,
     ApprovalComponent,
-    BarChartComponent
+    BarChartComponent,
+    SingleDiscountComponent,
   ],
   imports: [
     BrowserModule,
@@ -72,15 +74,15 @@ import { AppInterceptorService } from './app-interceptor.service';
     FormsModule,
     MaterialModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AppInterceptorService,
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

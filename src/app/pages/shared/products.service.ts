@@ -6,19 +6,20 @@ import { environment } from 'src/environments/environment';
 const BACKEND_URL = environment.apiUrl;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductsService {
   private postsUpdated = new Subject();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getProduct(postsPerPage: number, currentPage: number) {
     const queryParams = `?pagesize=${postsPerPage}&page=${currentPage}`;
-    return this.http.get(BACKEND_URL + 'products' + queryParams)
+    return this.http
+      .get(BACKEND_URL + 'products' + queryParams)
       .subscribe((data: any) => {
-        this.postsUpdated.next([...data])
-      })
+        this.postsUpdated.next([...data]);
+      });
   }
 
   getPostUpdateListener() {
@@ -27,5 +28,9 @@ export class ProductsService {
 
   getSingleProduct(id) {
     return this.http.get(`${BACKEND_URL}product/${id}`);
+  }
+
+  getSingleDiscount(id) {
+    return this.http.get(`${BACKEND_URL}discount/${id}`);
   }
 }
