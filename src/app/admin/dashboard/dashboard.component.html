@@ -1,4 +1,3 @@
-
 <section>
   <div class="row mb-4">
     <div class="col-lg-3 .col-sm-6 my-lg-0 my-2">
@@ -9,11 +8,19 @@
           </h6>
           <div class="clearfix pt-2">
             <span class="float-left">
-              <i class="fa fa-microchip font-weight-bold" style="color: #15b658;font-size: 1.8em;"></i>
+              <i
+                class="fa fa-microchip font-weight-bold"
+                style="color: #15b658; font-size: 1.8em;"
+              ></i>
             </span>
             <p
               class="rounded-pill float-right px-3 py-1 font-weight-bold"
-              style="font-size: 15px; background-color: #effff6; color: #00ff9d;">
+              style="
+                font-size: 15px;
+                background-color: #effff6;
+                color: #00ff9d;
+              "
+            >
               {{ filteredProducts.length }}
             </p>
           </div>
@@ -28,11 +35,19 @@
           </h6>
           <div class="clearfix pt-2">
             <span class="float-left">
-              <i class="fa fa-wpexplorer font-weight-bold" style="color: #aa74bb;font-size: 1.8em;"></i>
+              <i
+                class="fa fa-wpexplorer font-weight-bold"
+                style="color: #aa74bb; font-size: 1.8em;"
+              ></i>
             </span>
             <p
               class="rounded-pill float-right px-3 py-1 font-weight-bold"
-              style="font-size: 15px; background-color: #ffeffb; color: #ff00ea;">
+              style="
+                font-size: 15px;
+                background-color: #ffeffb;
+                color: #ff00ea;
+              "
+            >
               {{ discount.length }}
             </p>
           </div>
@@ -47,11 +62,19 @@
           </h6>
           <div class="clearfix pt-2">
             <span class="float-left">
-              <i class="fa fa-inbox font-weight-bold" style="color: #c85b48;font-size: 1.8em;"></i>
+              <i
+                class="fa fa-inbox font-weight-bold"
+                style="color: #c85b48; font-size: 1.8em;"
+              ></i>
             </span>
             <p
               class="rounded-pill float-right px-3 py-1 font-weight-bold"
-              style="font-size: 15px; background-color: #effbff; color: #00b7ff;">
+              style="
+                font-size: 15px;
+                background-color: #effbff;
+                color: #00b7ff;
+              "
+            >
               {{ orders.length }}
             </p>
           </div>
@@ -66,11 +89,19 @@
           </h6>
           <div class="clearfix pt-2">
             <span class="float-left">
-              <i class="fa fa-envelope-o font-weight-bold" style="color: #159eb6;font-size: 1.8em;"></i>
+              <i
+                class="fa fa-envelope-o font-weight-bold"
+                style="color: #159eb6; font-size: 1.8em;"
+              ></i>
             </span>
             <p
               class="rounded-pill float-right px-3 py-1 font-weight-bold"
-              style="font-size: 15px; background-color: #fdefff; color: #e100ff;">
+              style="
+                font-size: 15px;
+                background-color: #fdefff;
+                color: #e100ff;
+              "
+            >
               {{ mails.length }}
             </p>
           </div>
@@ -85,7 +116,13 @@
           <div class="clearfix">
             <h3 class="font-weight-bold float-left mt-1">Products</h3>
             <div class="form-group float-right mt-1">
-              <input type="text" class="form-control" placeholder="Search..." #query (keyup)="filter(query.value)">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search..."
+                #query
+                (keyup)="filter(query.value)"
+              />
             </div>
           </div>
         </div>
@@ -105,7 +142,7 @@
               <tbody>
                 <tr *ngFor="let p of filteredProducts">
                   <th scope="row">
-                    <img [src]="p.image[0]" style="height: 5vh;" alt="">
+                    <img [src]="p.image[0]" style="height: 5vh;" alt="" />
                   </th>
                   <td>
                     {{ p.product.productName }}
@@ -120,8 +157,14 @@
                     {{ p.product.amount }}
                   </td>
                   <td>
-                    <div class="d-inline p-2" [routerLink]="['/admin/dashboard/', p._id]">
-                      <span class="p-1 rounded" style="background-color: #f1f1fd;">
+                    <div
+                      class="d-inline p-2"
+                      [routerLink]="['/admin/dashboard/', p._id]"
+                    >
+                      <span
+                        class="p-1 rounded"
+                        style="background-color: #f1f1fd;"
+                      >
                         <i class="fa fa-pencil-square-o"></i>
                         Edit
                       </span>
@@ -175,19 +218,19 @@
               <tbody>
                 <tr *ngFor="let d of discount">
                   <th scope="row">
-                    <img [src]="d.product.image[0]" style="height: 5vh;" alt="">
+                    <img [src]="d.image[0]" style="height: 5vh;" alt="" />
                   </th>
                   <td>
-                    {{ d.product.product.productName }}
+                    {{ d.product.productName }}
                   </td>
                   <td>
-                    {{ d.product.product.tag }}
+                    {{ d.product.tag }}
                   </td>
                   <td>
-                    {{ d.product.product.owner }}
+                    {{ d.product.owner }}
                   </td>
                   <td>
-                    {{ d.product.product.amount }}
+                    {{ d.product.amount }}
                   </td>
                   <td>
                     {{ d.percentage }}
