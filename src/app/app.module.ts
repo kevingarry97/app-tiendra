@@ -35,6 +35,7 @@ import { ApprovalComponent } from './admin/approval/approval.component';
 import { BarChartComponent } from './admin/bar-chart/bar-chart.component';
 import { AppInterceptorService } from './app-interceptor.service';
 import { SingleDiscountComponent } from './pages/single-discount/single-discount.component';
+import { ProductViewComponent } from './pages/product-view/product-view.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { SingleDiscountComponent } from './pages/single-discount/single-discount
     ApprovalComponent,
     BarChartComponent,
     SingleDiscountComponent,
+    ProductViewComponent,
   ],
   imports: [
     BrowserModule,

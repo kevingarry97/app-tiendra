@@ -15,20 +15,16 @@
               *ngFor="let d of discounts"
             >
               <div class="card" [routerLink]="['/discount/', d._id]">
-                <img
-                  [src]="d.product.image[0]"
-                  class="card-img-top"
-                  alt="..."
-                />
+                <img [src]="d.image[0]" class="card-img-top" alt="..." />
                 <div class="box">{{ d.percentage }}%</div>
-                <p>{{ d.product.product.productName }}</p>
+                <p>{{ d.product.productName }}</p>
                 <div class="clearfix">
                   <p
                     class="font-weight-bold text-muted pt-2 float-left"
                     style="font-size: 12px;"
                   >
                     <del>
-                      {{ d.product.product.amount | currency: "RWF" }}
+                      {{ d.product.amount | currency: "RWF" }}
                     </del>
                   </p>
                   <p class="font-weight-bold text-danger pt-2 float-right">

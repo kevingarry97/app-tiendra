@@ -27,11 +27,22 @@
                     class="form-control"
                     placeholder="First Name"
                     formControlName="firstName"
+                  />
+                  <div
+                    class="alert alert-danger"
+                    *ngIf="firstName.invalid && firstName.touched"
                   >
-                  <div class="alert alert-danger" *ngIf="firstName.invalid && firstName.touched">
-                    <div *ngIf="firstName.errors.required"> This Field is required!</div>
-                    <div *ngIf="firstName.errors.minlength"> This Field length must be {{ firstName.errors.minlength.requiredLength }}</div>
-                    <div *ngIf="firstName.errors.maxlength"> This Field length must be {{ firstName.errors.maxlength.requiredLength }}</div>
+                    <div *ngIf="firstName.errors.required">
+                      This Field is required!
+                    </div>
+                    <div *ngIf="firstName.errors.minlength">
+                      This Field length must be
+                      {{ firstName.errors.minlength.requiredLength }}
+                    </div>
+                    <div *ngIf="firstName.errors.maxlength">
+                      This Field length must be
+                      {{ firstName.errors.maxlength.requiredLength }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -42,11 +53,22 @@
                     class="form-control"
                     placeholder="Last Name"
                     formControlName="lastName"
+                  />
+                  <div
+                    class="alert alert-danger"
+                    *ngIf="lastName.invalid && lastName.touched"
                   >
-                  <div class="alert alert-danger" *ngIf="lastName.invalid && lastName.touched">
-                    <div *ngIf="lastName.errors.required"> This Field is required!</div>
-                    <div *ngIf="lastName.errors.minlength"> This Field length must be {{ lastName.errors.minlength.requiredLength }}</div>
-                    <div *ngIf="lastName.errors.maxlength"> This Field length must be {{ lastName.errors.maxlength.requiredLength }}</div>
+                    <div *ngIf="lastName.errors.required">
+                      This Field is required!
+                    </div>
+                    <div *ngIf="lastName.errors.minlength">
+                      This Field length must be
+                      {{ lastName.errors.minlength.requiredLength }}
+                    </div>
+                    <div *ngIf="lastName.errors.maxlength">
+                      This Field length must be
+                      {{ lastName.errors.maxlength.requiredLength }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -57,10 +79,13 @@
                 class="form-control"
                 placeholder="Email"
                 formControlName="email"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="email.invalid && email.touched"
               >
-              <div class="alert alert-danger" *ngIf="email.invalid && email.touched">
-                <div *ngIf="email.errors.required"> This Field is required!</div>
-                <div *ngIf="email.errors.email"> Provide a valid Email </div>
+                <div *ngIf="email.errors.required">This Field is required!</div>
+                <div *ngIf="email.errors.email">Provide a valid Email</div>
               </div>
             </div>
             <div class="form-group">
@@ -69,14 +94,22 @@
                 class="form-control"
                 placeholder="Address 1*"
                 formControlName="adress1"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="adress1.invalid && adress1.touched"
               >
-              <div class="alert alert-danger" *ngIf="adress1.invalid && adress1.touched">
-                <div *ngIf="adress1.errors.required"> This Field is required!</div>
-                <div *ngIf="adress1.errors.minlength"> This Field length must be {{ adress1.errors.minlength.requiredLength }}</div>
+                <div *ngIf="adress1.errors.required">
+                  This Field is required!
+                </div>
+                <div *ngIf="adress1.errors.minlength">
+                  This Field length must be
+                  {{ adress1.errors.minlength.requiredLength }}
+                </div>
               </div>
             </div>
             <div class="form-group">
-              <input type="text" class="form-control" placeholder="Address 2">
+              <input type="text" class="form-control" placeholder="Address 2" />
             </div>
             <div class="row">
               <div class="col-md-5">
@@ -86,11 +119,22 @@
                     class="form-control"
                     placeholder="Country"
                     formControlName="country"
+                  />
+                  <div
+                    class="alert alert-danger"
+                    *ngIf="country.invalid && country.touched"
                   >
-                  <div class="alert alert-danger" *ngIf="country.invalid && country.touched">
-                    <div *ngIf="country.errors.required"> This Field is required!</div>
-                    <div *ngIf="country.errors.minlength"> This Field length must be {{ country.errors.minlength.requiredLength }}</div>
-                    <div *ngIf="country.errors.maxlength"> This Field length must be {{ country.errors.maxlength.requiredLength }}</div>
+                    <div *ngIf="country.errors.required">
+                      This Field is required!
+                    </div>
+                    <div *ngIf="country.errors.minlength">
+                      This Field length must be
+                      {{ country.errors.minlength.requiredLength }}
+                    </div>
+                    <div *ngIf="country.errors.maxlength">
+                      This Field length must be
+                      {{ country.errors.maxlength.requiredLength }}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -101,17 +145,32 @@
                     class="form-control"
                     placeholder="City"
                     formControlName="city"
+                  />
+                  <div
+                    class="alert alert-danger"
+                    *ngIf="city.invalid && city.touched"
                   >
-                  <div class="alert alert-danger" *ngIf="city.invalid && city.touched">
-                    <div *ngIf="city.errors.required"> This Field is required!</div>
-                    <div *ngIf="city.errors.minlength"> This Field length must be {{ city.errors.minlength.requiredLength }}</div>
-                    <div *ngIf="city.errors.maxlength"> This Field length must be {{ city.errors.maxlength.requiredLength }}</div>
+                    <div *ngIf="city.errors.required">
+                      This Field is required!
+                    </div>
+                    <div *ngIf="city.errors.minlength">
+                      This Field length must be
+                      {{ city.errors.minlength.requiredLength }}
+                    </div>
+                    <div *ngIf="city.errors.maxlength">
+                      This Field length must be
+                      {{ city.errors.maxlength.requiredLength }}
+                    </div>
                   </div>
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Zip Code">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Zip Code"
+                  />
                 </div>
               </div>
             </div>
@@ -121,13 +180,20 @@
                 class="form-control"
                 placeholder="Phone Number"
                 formControlName="phone"
+              />
+              <div
+                class="alert alert-danger"
+                *ngIf="phone.invalid && phone.touched"
               >
-              <div class="alert alert-danger" *ngIf="phone.invalid && phone.touched">
-                <div *ngIf="phone.errors.required"> This Field is required!</div>
+                <div *ngIf="phone.errors.required">This Field is required!</div>
               </div>
             </div>
             <div class="form-group">
-              <textarea class="form-control" rows="4" placeholder="Order Note"></textarea>
+              <textarea
+                class="form-control"
+                rows="4"
+                placeholder="Order Note"
+              ></textarea>
             </div>
           </div>
         </div>
@@ -138,47 +204,76 @@
             </h4>
             <div class="card-body">
               <div class="clearfix mb-4">
-                <h2 class="font-weight-bold text-muted float-left"> Product</h2>
-                <h2 class="font-weight-bold text-muted float-right"> Total</h2>
+                <h2 class="font-weight-bold text-muted float-left">Product</h2>
+                <h2 class="font-weight-bold text-muted float-right">Total</h2>
               </div>
               <div class="clearfix my-3" *ngFor="let c of carts['products']">
-                <p class="text-muted float-left" style="font-size: 15px;"> {{ c.item.product.productName }} </p>
-                <p class="float-right font-weight-bold" style="font-size: 12px;">{{ c.item.product.amount | currency: 'RWF' }}</p>
+                <p class="text-muted float-left" style="font-size: 15px;">
+                  {{ c.item.product.productName }}
+                </p>
+                <p
+                  class="float-right font-weight-bold"
+                  style="font-size: 12px;"
+                >
+                  {{
+                    c.item.newAmount || c.item.product.amount | currency: "RWF"
+                  }}
+                </p>
               </div>
-              <hr>
+              <hr />
               <div class="clearfix my-4">
                 <h4 class="float-left"><b class="text-muted"> Total </b></h4>
-                <h4 class="float-right"> <b class="text-danger"> {{ carts.totalPrice | currency: 'RWF' }} </b></h4>
+                <h4 class="float-right">
+                  <b class="text-danger">
+                    {{ carts.totalPrice | currency: "RWF" }}
+                  </b>
+                </h4>
               </div>
               <div class="clearfix my-3">
-                <p class="text-muted float-left" style="font-size: 15px;"> Shipping</p>
-                <p class="float-right"> <b class="text-muted"> On Delivery </b></p>
+                <p class="text-muted float-left" style="font-size: 15px;">
+                  Shipping
+                </p>
+                <p class="float-right">
+                  <b class="text-muted"> On Delivery </b>
+                </p>
               </div>
               <a href="#" data-toggle="modal" data-target="#terms">
                 <p class="text-center text-muted font-weight-bold">
                   Read the terms & Conditions
                 </p>
               </a>
-                <div class="form-group">
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="text Id..."
-                    formControlName="textId"
-                  >
-                  <div class="alert alert-danger" *ngIf="textId.invalid && textId.touched">
-                    <div *ngIf="textId.errors.required"> This Field is required!</div>
-                    <div *ngIf="textId.errors.minlength"> The Mobile Money IdText is invalid</div>
-                    <div *ngIf="textId.errors.maxlength"> The Mobile Money IdText is invalid</div>
+              <div class="form-group">
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="text Id..."
+                  formControlName="textId"
+                />
+                <div
+                  class="alert alert-danger"
+                  *ngIf="textId.invalid && textId.touched"
+                >
+                  <div *ngIf="textId.errors.required">
+                    This Field is required!
+                  </div>
+                  <div *ngIf="textId.errors.minlength">
+                    The Mobile Money IdText is invalid
+                  </div>
+                  <div *ngIf="textId.errors.maxlength">
+                    The Mobile Money IdText is invalid
                   </div>
                 </div>
-                <select
-                  class="custom-select mb-4"
-                  id="delivery">
-                  <option selected disabled value="">Delivery </option>
-                  <option>...</option>
-                </select>
-              <button class="btn btn-danger btn-lg btn-block rounded-pill" [disabled]="form.invalid">Place Order</button>
+              </div>
+              <select class="custom-select mb-4" id="delivery">
+                <option selected disabled value="">Delivery </option>
+                <option>...</option>
+              </select>
+              <button
+                class="btn btn-danger btn-lg btn-block rounded-pill"
+                [disabled]="form.invalid"
+              >
+                Place Order
+              </button>
             </div>
           </div>
         </div>
@@ -186,7 +281,14 @@
     </form>
   </div>
 </section>
-<div class="modal fade" id="terms" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div
+  class="modal fade"
+  id="terms"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog modal-dialog-scrollable modal-xl shadow">
     <div class="modal-content">
       <div class="modal-body">

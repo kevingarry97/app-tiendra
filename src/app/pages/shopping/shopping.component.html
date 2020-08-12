@@ -2,12 +2,17 @@
 <section>
   <div class="container">
     <div class="clearfix mt-5">
-      <h3 class="font-weight-bold text-muted float-left"> Shopping Cart</h3>
-      <a class="float-right btn btn-danger rounded-pill text-white" routerLink="/checkout"> <b> Go to Checkout </b></a>
+      <h3 class="font-weight-bold text-muted float-left">Shopping Cart</h3>
+      <a
+        class="float-right btn btn-danger rounded-pill text-white"
+        routerLink="/checkout"
+      >
+        <b> Go to Checkout </b></a
+      >
     </div>
     <ng-container>
       <p class="text-center my-4 font-weight-bold text-muted text-danger">
-        You have items {{ carts['totalQty']}} in your cart
+        You have items {{ carts["totalQty"] }} in your cart
       </p>
       <div class="table-responsive">
         <table class="table mt-3 border-bottom">
@@ -23,7 +28,12 @@
           <tbody>
             <tr *ngFor="let c of carts['products']">
               <th scope="row">
-                <img [src]="c.item.image[0]" style="max-height: 8vh" class="img-fluid" alt="">
+                <img
+                  [src]="c.item.image[0]"
+                  style="max-height: 8vh;"
+                  class="img-fluid"
+                  alt=""
+                />
               </th>
               <td>
                 {{ c.item.product.productName }}
@@ -32,18 +42,24 @@
                 {{ c.item.product.item }}
               </td>
               <td>
-                <i class="fa fa-times text-danger ml-md-3" style="font-size: 28px;" (click)="onRemove(c.item)"></i>
+                <i
+                  class="fa fa-times text-danger ml-md-3"
+                  style="font-size: 28px;"
+                  (click)="onRemove(c.item)"
+                ></i>
               </td>
               <td>
-                {{ c.item.product.amount }}
+                {{ c.item.newAmount || c.item.product.amount }}
               </td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="clearfix my-4">
-        <h3 class="text-muted font-weight-bold float-left"> Total</h3>
-        <h3 class="text-danger font-weight-bold float-right"> {{ carts['totalPrice'] }}</h3>
+        <h3 class="text-muted font-weight-bold float-left">Total</h3>
+        <h3 class="text-danger font-weight-bold float-right">
+          {{ carts["totalPrice"] }}
+        </h3>
       </div>
     </ng-container>
   </div>
