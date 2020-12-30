@@ -14,7 +14,7 @@ export class ShoppingComponent implements OnInit {
 
   ngOnInit(): void {
     this.cartService.carts$.subscribe((data) => {
-      this.carts = data;
+      data ? (this.carts = data) : {};
     });
   }
 

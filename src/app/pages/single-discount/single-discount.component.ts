@@ -20,7 +20,7 @@ export class SingleDiscountComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.productService.getSingleDiscount(this.id).subscribe((data: any) => {
-      this.discount = data;
+      data ? (this.discount = data) : {};
     });
   }
 }

@@ -14,14 +14,14 @@ export class SingleProductComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private productService: ProductsService,
-    private cartService: ShoppingCartService
+    private productService: ProductsService
   ) {}
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     this.productService.getSingleProduct(this.id).subscribe((data: any) => {
-      this.product = data;
+      data ? (this.product = data) : {};
+      console.log(data);
     });
   }
 }

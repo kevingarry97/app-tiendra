@@ -9,7 +9,7 @@ const BACKEND_URL = environment.apiUrl;
   providedIn: 'root',
 })
 export class ShoppingCartService {
-  private cartStore = new BehaviorSubject<Object>(0);
+  private cartStore = new BehaviorSubject({});
   carts$ = this.cartStore.asObservable();
   constructor(private http: HttpClient) {}
 

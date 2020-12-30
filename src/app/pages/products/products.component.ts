@@ -1,4 +1,10 @@
-import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ViewChild,
+  ElementRef,
+  OnDestroy,
+} from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 import { ProductsService } from '../shared/products.service';
 import { ActivatedRoute } from '@angular/router';
@@ -8,10 +14,9 @@ import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
-  styleUrls: ['./products.component.css']
+  styleUrls: ['./products.component.css'],
 })
 export class ProductsComponent implements OnInit, OnDestroy {
-
   @ViewChild('myOverlay', { static: true }) myOverlay: ElementRef;
   @ViewChild('filter', { static: true }) filter: ElementRef;
 
@@ -22,7 +27,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   totalPosts = 10;
   postsPerPage = 2;
   currentPage = 1;
-  pageSizeOptions = [1, 2, 5, 10];
+  pageSizeOptions = [2, 5, 10];
   private postsSub: Subscription;
 
   constructor(
@@ -32,26 +37,33 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.productService.getProduct(this.postsPerPage, this.currentPage);
-    this.postsSub = this.productService.getPostUpdateListener()
-      .pipe(switchMap((data: any) => {
-        this.products = data;
-        return this.route.queryParamMap;
-      }))
-      .subscribe(params => {
-        this.category = params.get('cat')
-        this.subCategory = params.get('sub')
+    this.postsSub = this.productService
+      .getPostUpdateListener()
+      .pipe(
+        switchMap((data: any) => {
+          data ? (this.products = data) : {};
+          return this.route.queryParamMap;
+        })
+      )
+      .subscribe((params) => {
+        this.category = params.get('cat');
+        this.subCategory = params.get('sub');
 
-        this.filteredProducts = (this.category && this.subCategory) ?
-          this.products
-          .filter(p => p.product.category.name === this.category && p.product.subCategory.name === this.subCategory) :
-          this.products
-      })
+        this.filteredProducts =
+          this.category && this.subCategory
+            ? this.products.filter(
+                (p) =>
+                  p.product.category.name === this.category &&
+                  p.product.subCategory.name === this.subCategory
+              )
+            : this.products;
+      });
   }
 
   onChangedPage(pageData: PageEvent) {
     this.currentPage = pageData.pageIndex + 1;
     this.postsPerPage = pageData.pageSize;
-    this.productService.getProduct(this.postsPerPage, this.currentPage)
+    this.productService.getProduct(this.postsPerPage, this.currentPage);
   }
 
   filterOpen() {
@@ -73,5 +85,4 @@ export class ProductsComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.postsSub.unsubscribe();
   }
-
 }

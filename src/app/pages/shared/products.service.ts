@@ -13,7 +13,7 @@ export class ProductsService {
 
   constructor(private http: HttpClient) {}
 
-  getProduct(postsPerPage: number, currentPage: number) {
+  getProduct(postsPerPage?: number, currentPage?: number) {
     const queryParams = `?pagesize=${postsPerPage}&page=${currentPage}`;
     return this.http
       .get(BACKEND_URL + 'products' + queryParams)
